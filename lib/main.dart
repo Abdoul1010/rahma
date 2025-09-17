@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:glowy_borders/glowy_borders.dart';
-import 'package:rahma_group/commun/widget/navigation_bar.dart';
 import 'package:rahma_group/pages/home.dart';
 import 'package:rahma_group/routes/router_generator.dart';
 import 'package:rahma_group/routes/routes.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 void main() {
+  usePathUrlStrategy();
   runApp(const MyApp());
 }
 
