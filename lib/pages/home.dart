@@ -275,7 +275,7 @@ class _HomeState extends State<Home> {
                                           TextSpan(
                                               text: "{ Full\nStack }",
                                               style: TextStyle(
-                                                color: Colors.green[800],
+                                                color: Colors.blue[800],
                                                 fontSize: 67,
                                                 fontWeight: FontWeight.bold,
                                               )),
@@ -408,12 +408,13 @@ import 'package:flutter/material.dart';
 import 'package:glowy_borders/glowy_borders.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:rahma_group/commun/anime/circular_container.dart';
+import 'package:rahma_group/pages/sub_screens/responsive_project.dart';
+import 'package:rahma_group/pages/sub_screens/responsive_skills.dart';
+import 'package:rahma_group/pages/sub_screens/responsive_values.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../commun/widget/blog/blog_card.dart';
-import '../commun/widget/button/scroll_to_top_button.dart';
 import '../commun/widget/contact/contact_form.dart';
-import '../commun/widget/navigation_bar.dart';
 
 const List<String> list = <String>['Français', 'Arabe', 'Anglais'];
 
@@ -426,6 +427,10 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
   String dropdownValue = list.first;
+
+  ///--------for responsive----------
+
+  /// ------for responsive end----------
 
   final ScrollController _scrollButton = ScrollController();
   double _scrollProgress = 0;
@@ -456,19 +461,61 @@ class _HomeState extends State<Home> {
   late Timer timer;
 
   final List<Map<String, String>> skills = [
-    {"category": "Front-End", "skills": "HTML, CSS, JavaScript, React, Angular"},
-    {"category": "Back-End", "skills": "Node.js, Express, Python, Django"},
-    {"category": "Databases", "skills": "MySQL, PostgreSQL, MongoDB"},
-    {"category": "Tools & Platforms", "skills": "Git, Docker, AWS, Heroku"},
-    {"category": "Others", "skills": "RESTful APIs, GraphQL, Agile Methodologies"},
+    {"category": "Front-End", "skills": "HTML, CSS, Flutter, React, Vue.js"},
+    {"category": "Back-End", "skills": "Laravel, Spring Boot, Python, Django"},
+    {
+      "category": "Base de Données",
+      "skills": "MySQL, PostgreSQL, MongoDB, Firebase"
+    },
+    {
+      "category": "Outils & Logiciels",
+      "skills":
+      "Git, Adobe Photoshop - Illustrator, Adobe Premiere - After Effect, Figma, "
+    },
+    {"category": "Others", "skills": "RESTful APIs, Méthodologie Agile"},
   ];
 
   final List<String> logos = [
-    "https://zelio-developer.botble.com/storage/code/skills/1.png",
-    "https://zelio-developer.botble.com/storage/code/skills/2.png",
-    "https://zelio-developer.botble.com/storage/code/skills/3.png",
-    "https://zelio-developer.botble.com/storage/code/skills/4.png",
-    "https://zelio-developer.botble.com/storage/code/skills/5.png",
+    "assets/skills/1.png",
+    "assets/skills/2.png",
+    "assets/skills/3.png",
+    "assets/skills/4.png",
+    "assets/skills/5.png",
+  ];
+
+  ///***********Cooperation
+  ///
+  final List<Map<String, String>> companies = [
+    {'logo': 'assets/logo/el.png', 'name': 'EL ENTERPRISES'},
+    {'logo': 'assets/logo/Logo_Paradise.png', 'name': 'Paradise Perfume'},
+    {'logo': 'assets/logo/sib.jpg', 'name': 'SIB'},
+    {'logo': 'assets/logo/alhidaya.jpg', 'name': 'Alhidaya'},
+    {'logo': 'assets/logo/holitex.jpg', 'name': 'Niger Holitex'},
+    {'logo': 'assets/logo/mondial_sawki.jpg', 'name': 'Mondial Sawki'},
+    {'logo': 'assets/logo/majestic.jpg', 'name': 'Majestic Event'},
+    {'logo': 'assets/logo/rafiq.png', 'name': 'RAFIQ'},
+  ];
+
+  // Données des contacts
+  final List<Map<String, dynamic>> contacts = [
+    {
+      'icon': Icons.facebook_outlined,
+      'label': '[facebook]',
+      'value': 'Rahma Matjar',
+      'onPressed': () {},
+    },
+    {
+      'icon': Icons.mail_outline,
+      'label': '[email]',
+      'value': 'rahmamatjar@gmail.com',
+      'onPressed': () {},
+    },
+    {
+      'icon': Icons.phone_outlined,
+      'label': '[téléphone]',
+      'value': '(+227) 80 76 76 90',
+      'onPressed': () {},
+    },
   ];
 
   List<String> get repeatedLogos => [...logos, ...logos, ...logos];
@@ -503,59 +550,74 @@ class _HomeState extends State<Home> {
   }
 
   final List<Map<String, String>> entries = [
-    {"title": "L'utilité",
-      "content": "Nous croyons que chaque projet doit répondre à un besoin réel."
-          },
-    {"title": "Foi et éthique",
-      "content": "Notre démarche est guidée par des principes forts"},
-    {"title": "Innovation responsable",
-      "content": "Progresser avec conscience"},
-    {"title": "Solidarité",
-      "content": "Nous grandissons ensemble"},
-    {"title": "Indépendance",
-      "content": "Bâtir un modèle solide et autonome"},
-    {"title": "Excellence par étapes",
-      "content": "Avancer avec méthode, patience et rigueur"},
+    {
+      "title": "L'utilité",
+      "content":
+      "Nous croyons que chaque projet doit répondre à un besoin réel."
+    },
+    {
+      "title": "Foi et éthique",
+      "content": "Notre démarche est guidée par des principes forts"
+    },
+    {
+      "title": "Innovation responsable",
+      "content": "Progresser avec conscience"
+    },
+    {"title": "Solidarité", "content": "Nous grandissons ensemble"},
+    {"title": "Indépendance", "content": "Bâtir un modèle solide et autonome"},
+    {
+      "title": "Excellence par étapes",
+      "content": "Avancer avec méthode, patience et rigueur"
+    },
   ];
   final List<Map<String, String>> entries1 = [
-    {"title": "L'utilité",
+    {
+      "title": "L'utilité",
       "content": "Nous croyons que chaque projet doit répondre à un besoin réel.\n"
           "Chez Rahma Group, l’innovation n’a de sens que si elle est utile à la société. Chaque solution que nous concevons est pensée pour faciliter la vie des individus, apporter des réponses concrètes et créer un impact durable."
-          },
-    {"title": "Foi et éthique",
+    },
+    {
+      "title": "Foi et éthique",
       "content": "Notre démarche est guidée par des principes forts\n"
-          "Nous plaçons la foi, la sincérité, l’honnêteté et la transparence au cœur de tout ce que nous entreprenons. Ces valeurs ne sont pas des slogans, mais des repères concrets dans notre manière de travailler, de collaborer et de servir."},
-    {"title": "Innovation responsable",
+          "Nous plaçons la foi, la sincérité, l’honnêteté et la transparence au cœur de tout ce que nous entreprenons. Ces valeurs ne sont pas des slogans, mais des repères concrets dans notre manière de travailler, de collaborer et de servir."
+    },
+    {
+      "title": "Innovation responsable",
       "content": "Progresser avec conscience\n"
-          "Chez Rahma, l’innovation n’est pas une fin en soi. C’est un outil pour transformer positivement nos réalités, tout en respectant notre culture, notre environnement et nos valeurs humaines."},
-
+          "Chez Rahma, l’innovation n’est pas une fin en soi. C’est un outil pour transformer positivement nos réalités, tout en respectant notre culture, notre environnement et nos valeurs humaines."
+    },
   ];
   final List<Map<String, String>> entries2 = [
-    {"title": "Solidarité",
+    {
+      "title": "Solidarité",
       "content": "Nous grandissons ensemble\n"
-          "Nous ne construisons pas pour nous seuls. Nous construisons avec et pour la communauté. Nos projets intègrent des dimensions sociales : entraide, inclusion, soutien aux entrepreneurs, formation des jeunes."},
-    {"title": "Indépendance",
+          "Nous ne construisons pas pour nous seuls. Nous construisons avec et pour la communauté. Nos projets intègrent des dimensions sociales : entraide, inclusion, soutien aux entrepreneurs, formation des jeunes."
+    },
+    {
+      "title": "Indépendance",
       "content": "Bâtir un modèle solide et autonome\n"
-          "Nous aspirons à une entreprise stable, autosuffisante et durable, qui ne dépend ni d’aides extérieures, ni de compromis de principe. L’indépendance est la clé de la liberté d’action, de la pérennité et de la souveraineté économique."},
-    {"title": "Excellence par étapes",
+          "Nous aspirons à une entreprise stable, autosuffisante et durable, qui ne dépend ni d’aides extérieures, ni de compromis de principe. L’indépendance est la clé de la liberté d’action, de la pérennité et de la souveraineté économique."
+    },
+    {
+      "title": "Excellence par étapes",
       "content": "Avancer avec méthode, patience et rigueur\n"
-          "Nous ne cherchons pas à aller vite, mais à aller loin, solidement et proprement. Chaque étape compte, chaque projet est construit pour durer, avec sérieux et souci du détail."},
+          "Nous ne cherchons pas à aller vite, mais à aller loin, solidement et proprement. Chaque étape compte, chaque projet est construit pour durer, avec sérieux et souci du détail."
+    },
   ];
 
   final List<Widget> imageSliders = [
     {
-      'image':
-          'assets/logo/rahma_matjar.png',
+      'image': 'assets/logo/rahma_matjar.png',
       'title': 'Marketplace Rahma Matjar',
       'desc': 'Application mobile de e-commerce',
       'category': 'FullSatck Mobile',
       'customer': 'Rahma Matjar',
       'date': '2024',
-      'url': 'https://play.google.com/store/apps/details?id=ne.rahma.matjar&pcampaignid=web_share',
+      'url':
+      'https://play.google.com/store/apps/details?id=ne.rahma.matjar&pcampaignid=web_share',
     },
     {
-      'image':
-      'assets/logo/rafiq.png',
+      'image': 'assets/logo/rafiq.png',
       'title': 'RAFIQ',
       'desc': 'Système de gestion',
       'category': 'FullSatck Mobile, web',
@@ -564,2128 +626,1474 @@ class _HomeState extends State<Home> {
       'url': '',
     },
   ]
-      .map((item) => Container(
-            margin: EdgeInsets.all(5.0),
-            padding: EdgeInsets.all(15.0),
-            decoration: BoxDecoration(
-              color: Color.fromRGBO(39, 39, 48, 1),
-              borderRadius: BorderRadius.circular(3),
-              border: Border.all(width: .5, color: Colors.blueGrey),
-            ),
-            child: Column(
+      .map((item) =>
+      Container(
+        margin: EdgeInsets.all(5.0),
+        padding: EdgeInsets.all(15.0),
+        decoration: BoxDecoration(
+          color: Color.fromRGBO(39, 39, 48, 1),
+          borderRadius: BorderRadius.circular(3),
+          border: Border.all(width: .5, color: Colors.blueGrey),
+        ),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Row(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: IntrinsicHeight(child: SizedBox(
-                        height: 290,
-                          child: Image.asset(item['image']!, fit: BoxFit.contain))),
-                    ),
-                    Expanded(
-                      flex: 4,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          spacing: 3,
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text(
-                                item['title']!,
-                                style: GoogleFonts.aboreto(
-                                  color: Colors.green,
-                                  fontSize: 27,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            SizedBox(),
-                            Padding(
-                              padding: const EdgeInsets.only(left: 8.0),
-                              child: Text(
-                                item['desc']!,
-                                style: TextStyle(
-                                  color: Colors.white,
-                                ),
-                              ),
-                            ),
-                            SizedBox(),
-                            Text(
-                              "• Informations sur le projet",
-                              style: TextStyle(
-                                color: Colors.pink[700],
-                              ),
-                            ),
-                            Divider(),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "• Catégorie",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Text(
-                                  item['category']!,
-                                  style: TextStyle(
-                                    color: Colors.grey[700],
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Divider(),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "• Client",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Text(
-                                  item['customer']!,
-                                  style: TextStyle(
-                                    color: Colors.grey[700],
-                                  ),
-                                ),
-                              ],
-                            ),
-                            Divider(),
-                            Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Text(
-                                  "• Date de début",
-                                  style: TextStyle(
-                                    color: Colors.white,
-                                  ),
-                                ),
-                                Text(
-                                  item['date']!,
-                                  style: TextStyle(
-                                    color: Colors.grey[700],
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                  ],
+                Expanded(
+                  flex: 3,
+                  child: IntrinsicHeight(
+                      child: SizedBox(
+                          height: 290,
+                          child: Image.asset(item['image']!,
+                              fit: BoxFit.contain))),
                 ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Expanded(
-                      flex: 3,
-                      child: Container(),
-                    ),
-                    Expanded(
-                      flex: 4,
-                      child: TextButton.icon(
-                        onPressed: () {
-                          launchUrl(Uri.parse(item['url']!));
-                        },
-                        style: TextButton.styleFrom(),
-                        icon: Icon(
-                          Icons.call_made_outlined,
-                          color: Colors.white,
-                        ),
-                        label: Container(
-                          //width: 100,
-                          decoration: BoxDecoration(
-                              border: Border(
-                                  bottom: BorderSide(
-                                      width: 2, color: Colors.blueGrey))),
+                Expanded(
+                  flex: 4,
+                  child: Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      spacing: 3,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
                           child: Text(
-                            'Voir plus',
-                            style: TextStyle(
-                              color: Colors.grey[700],
+                            item['title']!,
+                            style: GoogleFonts.aboreto(
+                              color: Colors.blue,
+                              fontSize: 27,
+                              fontWeight: FontWeight.bold,
                             ),
                           ),
                         ),
-                      ),
+                        SizedBox(),
+                        Padding(
+                          padding: const EdgeInsets.only(left: 8.0),
+                          child: Text(
+                            item['desc']!,
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
+                        ),
+                        SizedBox(),
+                        Text(
+                          "• Informations sur le projet",
+                          style: TextStyle(
+                            color: Colors.pink[700],
+                          ),
+                        ),
+                        Divider(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "• Catégorie",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            Text(
+                              item['category']!,
+                              style: TextStyle(
+                                color: Colors.grey[700],
+                              ),
+                            ),
+                          ],
+                        ),
+                        Divider(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "• Client",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            Text(
+                              item['customer']!,
+                              style: TextStyle(
+                                color: Colors.grey[700],
+                              ),
+                            ),
+                          ],
+                        ),
+                        Divider(),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              "• Date de début",
+                              style: TextStyle(
+                                color: Colors.white,
+                              ),
+                            ),
+                            Text(
+                              item['date']!,
+                              style: TextStyle(
+                                color: Colors.grey[700],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
-                  ],
-                )
+                  ),
+                ),
               ],
             ),
-          ))
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Expanded(
+                  flex: 3,
+                  child: Container(),
+                ),
+                Expanded(
+                  flex: 4,
+                  child: TextButton.icon(
+                    onPressed: () {
+                      launchUrl(Uri.parse(item['url']!));
+                    },
+                    style: TextButton.styleFrom(),
+                    icon: Icon(
+                      Icons.call_made_outlined,
+                      color: Colors.white,
+                    ),
+                    label: Container(
+                      //width: 100,
+                      decoration: BoxDecoration(
+                          border: Border(
+                              bottom: BorderSide(
+                                  width: 2, color: Colors.blueGrey))),
+                      child: Text(
+                        'Voir plus',
+                        style: TextStyle(
+                          color: Colors.grey[700],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ))
       .toList();
-
 
   @override
   Widget build(BuildContext context) {
-    final width = MediaQuery.of(context).size.width;
+    final width = MediaQuery
+        .of(context)
+        .size
+        .width;
     final isSmallScreen = width < 700;
     final horizontalPadding = width > 800 ? 100.0 : 16.0;
 
+    ///------------------responsive----------
+    final screenWidth = MediaQuery
+        .of(context)
+        .size
+        .width;
+    final screenHeight = MediaQuery
+        .of(context)
+        .size
+        .height;
+
+    // Déterminer si on est sur mobile, tablette ou desktop
+    bool isMobile = screenWidth < 600;
+    bool isTablet = screenWidth >= 600 && screenWidth < 1024;
+    bool isDesktop = screenWidth >= 1024;
+
+    // Calculs responsifs pour les tailles
+    double containerPadding = isMobile ? 12 : (isTablet ? 16 : 20);
+    double iconSize = isMobile ? 28 : (isTablet ? 32 : 37);
+    double numberFontSize = isMobile ? 45 : (isTablet ? 60 : 75);
+    double textFontSize = isMobile ? 12 : (isTablet ? 13 : 14);
+    double itemPadding = isMobile ? 8 : (isTablet ? 12 : 16);
+
+    // Liste des statistiques pour faciliter la gestion
+    final List<Map<String, dynamic>> stats = [
+      {
+        'icon': Icons.school_outlined,
+        'number': '4+',
+        'text': "ans d'expériences",
+      },
+      {
+        'icon': Icons.military_tech_rounded,
+        'number': '10+',
+        'text': "réalisations",
+      },
+      {
+        'icon': Icons.sentiment_very_satisfied_outlined,
+        'number': '10+',
+        'text': "clients satisfaits",
+      },
+      {
+        'icon': Icons.rocket_launch_outlined,
+        'number': '3+',
+        'text': "projets",
+      },
+    ];
+
+    /// -----------responsive end------------
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: Colors.black87,
       body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(
-              horizontal: horizontalPadding, vertical: 30),
-          child: Column(
-            children: [
-              AnimatedGradientBorder(
-                borderSize: 1,
-                glowSize: 1,
-                animationTime: 17,
-                gradientColors: [
-                  Colors.transparent,
-                  Colors.transparent,
-                  Colors.transparent,
-                  Colors.blue
-                ],
-                animationProgress: null,
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                  width: double.infinity,
-                  padding: EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    color: Color.fromRGBO(39, 39, 48, 1),
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(width: .5, color: Colors.blueGrey),
-                  ),
-                  child: Column(
-                    children: [
-                      _buildTopBar(width),
-                      SizedBox(height: 20),
-                      isSmallScreen
-                          ? _buildMobileContent(width)
-                          : _buildDesktopContent(width),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 27,
-              ),
-              Container(
-                width: double.infinity,
-                padding: EdgeInsets.all(16),
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.cover,
-                    image: AssetImage(
-                      'assets/images/static-bg.png',
-                    ),
-                  ),
-                  color: Color.fromRGBO(39, 39, 48, 1),
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(width: .5, color: Colors.blueGrey),
-                ),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          left: 68.0, top: 28, bottom: 28, right: 58),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.school_outlined,
-                            size: 37,
-                            color: Colors.green,
-                          ),
-                          Text(
-                            '4+',
-                            style: TextStyle(
-                                fontSize: 75,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                                ),
-                          ),
-                          Text(
-                            "ans d'expériences",
-                            style:
-                                TextStyle(fontSize: 14, color: Colors.white),
-                          )
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          left: 68.0, top: 28, bottom: 28, right: 58),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.military_tech_rounded,
-                            size: 37,
-                            color: Colors.green,
-                          ),
-                          Text(
-                            '10+',
-                            style: TextStyle(
-                                fontSize: 75,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          Text(
-                            "réalisations",
-                            style:
-                                TextStyle(fontSize: 14, color: Colors.white),
-                          )
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          left: 68.0, top: 28, bottom: 28, right: 58),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.sentiment_very_satisfied_outlined,
-                            size: 37,
-                            color: Colors.green,
-                          ),
-                          Text(
-                            '10+',
-                            style: TextStyle(
-                                fontSize: 75,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          Text(
-                            "clients satisfaits",
-                            style:
-                                TextStyle(fontSize: 14, color: Colors.white),
-                          )
-                        ],
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.only(
-                          left: 68.0, top: 28, bottom: 28, right: 58),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(
-                            Icons.rocket_launch_outlined,
-                            size: 37,
-                            color: Colors.green,
-                          ),
-                          Text(
-                            '3+',
-                            style: TextStyle(
-                                fontSize: 75,
-                                color: Colors.white,
-                                fontWeight: FontWeight.w600,
-                            ),
-                          ),
-                          Text(
-                            "projets",
-                            style:
-                                TextStyle(fontSize: 17, color: Colors.white),
-                          )
-                        ],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              SizedBox(
-                height: 27,
-              ),
-              Row(
+            child: Padding(
+              padding:
+              EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: 30),
+              child: Column(
                 children: [
-                  Expanded(
-                    flex: 3,
-                    child: Stack(
-                      children: [
-                        AnimatedGradientBorder(
-                          borderSize: 1,
-                          glowSize: 1,
-                          animationTime: 17,
-                          gradientColors: [
-                            Colors.transparent,
-                            Colors.transparent,
-                            Colors.transparent,
-                            Colors.blue
-                          ],
-                          animationProgress: null,
-                          borderRadius: BorderRadius.circular(20),
-                          child: Container(
+                  AnimatedGradientBorder(
+                    borderSize: 1,
+                    glowSize: 1,
+                    animationTime: 17,
+                    gradientColors: [
+                      Colors.transparent,
+                      Colors.transparent,
+                      Colors.transparent,
+                      Colors.blue
+                    ],
+                    animationProgress: null,
+                    borderRadius: BorderRadius.circular(20),
+                    child: Container(
+                      width: double.infinity,
+                      padding: EdgeInsets.all(16),
+                      decoration: BoxDecoration(
+                        color: Color.fromRGBO(39, 39, 48, 1),
+                        borderRadius: BorderRadius.circular(20),
+                        border: Border.all(width: .5, color: Colors.blueGrey),
+                      ),
+                      child: Column(
+                        children: [
+                          //_buildTopBar(width),
+                          //SizedBox(height: 20),
+                          isSmallScreen
+                              ? _buildMobileContent(width)
+                              : _buildDesktopContent(width),
+                        ],
+                      ),
+                    ),
+                  ),
+                  SizedBox(
+                    height: 27,
+                  ),
+
+                  ///----------------
+                  Container(
+                    width: double.infinity,
+                    padding: EdgeInsets.all(containerPadding),
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        fit: BoxFit.cover,
+                        image: AssetImage('assets/images/static-bg.png'),
+                      ),
+                      color: Color.fromRGBO(39, 39, 48, 1),
+                      borderRadius: BorderRadius.circular(isMobile ? 15 : 20),
+                      border: Border.all(width: .5, color: Colors.blueGrey),
+                    ),
+                    child: isMobile
+                        ? _buildMobileLayout(stats, iconSize, numberFontSize,
+                        textFontSize, itemPadding)
+                        : _buildDesktopLayout(stats, iconSize, numberFontSize,
+                        textFontSize, itemPadding),
+                  ),
+                  SizedBox(
+                    height: 27,
+                  ),
+
+                  ///***************Cooperation
+                  ///
+                  isMobile
+                      ? _buildMobileLayoutCooperation(companies, contacts, context)
+                      : _buildDesktopLayoutCooperation(
+                      companies, contacts, context),
+                  SizedBox(
+                    height: 27,
+                  ),
+
+                  ///*******************ce que nous savons faire
+                  ///
+                  LayoutBuilder(
+                    builder: (context, constraints) {
+                      // Déterminer la taille de l'écran
+                      bool isMobile = constraints.maxWidth < 768;
+                      bool isTablet = constraints.maxWidth >= 768 &&
+                          constraints.maxWidth < 1024;
+                      bool isDesktop = constraints.maxWidth >= 1024;
+
+                      // Calculer le nombre de colonnes pour la grille
+                      int crossAxisCount;
+                      if (isMobile) {
+                        crossAxisCount = 1;
+                      } else if (isTablet) {
+                        crossAxisCount = 2;
+                      } else {
+                        crossAxisCount = 3;
+                      }
+
+                      return AnimatedGradientBorder(
+                        borderSize: 1,
+                        glowSize: 1,
+                        animationTime: 17,
+                        gradientColors: [
+                          Colors.transparent,
+                          Colors.transparent,
+                          Colors.transparent,
+                          Colors.blue
+                        ],
+                        animationProgress: null,
+                        borderRadius: BorderRadius.circular(20),
+                        child: Container(
                             width: double.infinity,
-                            padding: EdgeInsets.all(16),
+                            padding: EdgeInsets.all(isMobile ? 12 : 16),
                             decoration: BoxDecoration(
                               color: Color.fromRGBO(39, 39, 48, 1),
                               borderRadius: BorderRadius.circular(20),
-                              border: Border.all(
-                                  width: .5, color: Colors.blueGrey),
+                              border: Border.all(width: .5, color: Colors.blueGrey),
                             ),
                             child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
+                                // Titre principal
                                 Text(
-                                  "• Coopération",
+                                  "• Ce que nous savons faire",
                                   style: TextStyle(
-                                    fontSize: 19,
-                                    color: Colors.green,
+                                    fontSize: isMobile ? 16 : 19,
+                                    color: Colors.blue,
                                   ),
+                                  textAlign: TextAlign.center,
                                 ),
+
+                                SizedBox(height: isMobile ? 12 : 16),
+
+                                // Sous-titre principal
                                 Text.rich(
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
-                                    fontSize: 37,
+                                    fontSize: isMobile ? 24 : isTablet ? 32 : 37,
                                     fontWeight: FontWeight.w500,
                                     color: Colors.white,
                                   ),
                                   TextSpan(
                                     children: [
-                                      TextSpan(text: "Plus de 10"),
+                                      TextSpan(text: "Concevoir des solutions"),
                                       TextSpan(
-                                          text: " entreprises\n",
-                                          style:
-                                              TextStyle(color: Colors.grey)),
-                                      TextSpan(text: "nous font"),
-                                      TextSpan(
-                                        text: " confiance_",
-                                        style: TextStyle(color: Colors.grey),
+                                          text: isMobile
+                                              ? "\npersonnalisées\npour répondre à vos besoins"
+                                              : " personnalisées\npour répondre à vos besoins",
+                                          style: TextStyle(color: Colors.grey)
                                       ),
                                     ],
                                   ),
                                 ),
-                                Container(
-                                  width: double.infinity,
-                                  padding: EdgeInsets.all(16),
-                                  margin: EdgeInsets.all(25),
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(39, 39, 48, 1),
-                                    borderRadius: BorderRadius.circular(20),
-                                    border: Border.all(
-                                        width: .5, color: Colors.blueGrey),
+
+                                SizedBox(height: isMobile ? 16 : 20),
+
+                                // Grille des services
+                                GridView.count(
+                                  shrinkWrap: true,
+                                  physics: NeverScrollableScrollPhysics(),
+                                  crossAxisCount: crossAxisCount,
+                                  mainAxisSpacing: isMobile ? 12 : 20,
+                                  crossAxisSpacing: isMobile ? 12 : 20,
+                                  childAspectRatio: isMobile ? 1.2 : isTablet
+                                      ? 1.0
+                                      : 0.8,
+                                  padding: EdgeInsets.all(isMobile ? 8 : 20),
+                                  children: [
+                                    _buildServiceCard(
+                                        "Mobile - WEB",
+                                        isMobile
+                                            ? ""
+                                            : "DEVELOPPEMENT d'APPLICATION MOBILE et WEB",
+                                        "Conception et développement d'applications mobiles, Android et iOS et"
+                                            " sites web e-commerce, vitrines ou institutionnels",
+                                        isMobile,
+                                        isTablet
+                                    ),
+                                    _buildServiceCard(
+                                        "API",
+                                        "DEVELOPPEMENT d'API",
+                                        "Conception et développement d'API évolutives pour les applications web et mobiles",
+                                        isMobile,
+                                        isTablet
+                                    ),
+                                    _buildServiceCard(
+                                        "DESIGN",
+                                        "DESIGN - IDENTITE VISUELLE",
+                                        "Conception graphique, UX/UI design, illustrations, "
+                                            "supports de communication (affiches, flyers, réseaux sociaux…)",
+                                        isMobile,
+                                        isTablet
+                                    ),
+                                    _buildServiceCard(
+                                        "MAINTENANCE",
+                                        "MAINTENANCE & SUIVI",
+                                        "Nous assurons la maintenance technique de vos plateformes : mises à jour, "
+                                            "sécurité, correctifs, optimisation… Pour que votre outil reste stable, "
+                                            "rapide et opérationnel",
+                                        isMobile,
+                                        isTablet
+                                    ),
+                                    _buildServiceCard(
+                                        "REFONTE",
+                                        "REFONTE - OPTIMISATION",
+                                        "Nous analysons votre site, application ou identité visuelle, puis proposons "
+                                            "une refonte sur-mesure : plus moderne, plus claire, mieux alignée avec "
+                                            "vos objectifs et vos utilisateurs",
+                                        isMobile,
+                                        isTablet
+                                    ),
+                                    _buildServiceCard(
+                                        "FORMATIONS",
+                                        "FORMATION ET ACCOMPAGNEMENT",
+                                        "Transmission de compétences à des apprenants débutants, "
+                                            "formation en technologies web et mobile, infographie, "
+                                            "création de contenus pédagogiques, supervision de mini-projets",
+                                        isMobile,
+                                        isTablet
+                                    ),
+                                  ],
+                                ),
+
+                                SizedBox(height: isMobile ? 16 : 20),
+
+                                // Texte de conclusion
+                                Padding(
+                                  padding: EdgeInsets.symmetric(
+                                      horizontal: isMobile ? 8 : 16
                                   ),
-                                  child: Column(
-                                    children: [
-                                      SingleChildScrollView(
-                                        scrollDirection: Axis.horizontal,
-                                        child: Row(
+                                  child: Text.rich(
+                                      textAlign: TextAlign.center,
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: isMobile ? 14 : 16
+                                      ),
+                                      TextSpan(
                                           children: [
-                                            Row(
-                                              children: [
-                                                Image.asset(
-                                                  'assets/logo/el.png',
-                                                  width: 30,
-                                                ),
-                                                Text(
-                                                  'EL ENTERPRISES',
-                                                  style: TextStyle(
-                                                      fontSize: 15,
-                                                      color: Colors.blueGrey),
-                                                ),
-                                              ],
+                                            TextSpan(
+                                              text: "Excité de prendre de nouveaux projets et de collaborer, discutons de vos idées.\n"
+                                                  "N'hésitez pas à ",
                                             ),
-                                            SizedBox(
-                                              width: 20,
+                                            TextSpan(
+                                                text: "nous contacter ",
+                                                style: TextStyle(color: Colors.blue)
                                             ),
-                                            Row(
-                                              children: [
-                                                Image.asset(
-                                                  'assets/logo/Logo_Paradise.png',
-                                                  width: 30,
-                                                ),
-                                                Text(
-                                                  'Paradise Perfume',
-                                                  style: TextStyle(
-                                                      fontSize: 15,
-                                                      color: Colors.blueGrey),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(
-                                              width: 20,
-                                            ),
-                                            Row(
-                                              children: [
-                                                Image.asset(
-                                                  'assets/logo/lg_icon.png',
-                                                  width: 30,
-                                                ),
-                                                Text(
-                                                  'Rahma Groupe',
-                                                  style: TextStyle(
-                                                      fontSize: 15,
-                                                      color: Colors.blueGrey),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(
-                                              width: 20,
-                                            ),
-                                            Row(
-                                              children: [
-                                                Image.asset(
-                                                  'assets/logo/lg_icon.png',
-                                                  width: 30,
-                                                ),
-                                                Text(
-                                                  'Rahma Groupe',
-                                                  style: TextStyle(
-                                                      fontSize: 15,
-                                                      color: Colors.blueGrey),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(
-                                              width: 20,
-                                            ),
-                                            Row(
-                                              children: [
-                                                Image.asset(
-                                                  'assets/logo/lg_icon.png',
-                                                  width: 30,
-                                                ),
-                                                Text(
-                                                  'Rahma Groupe',
-                                                  style: TextStyle(
-                                                      fontSize: 15,
-                                                      color: Colors.blueGrey),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 30,
-                                      ),
-                                      SingleChildScrollView(
-                                        scrollDirection: Axis.horizontal,
-                                        child: Row(
-                                          children: [
-                                            Row(
-                                              children: [
-                                                Image.asset(
-                                                  'assets/logo/lg_icon.png',
-                                                  width: 30,
-                                                ),
-                                                Text(
-                                                  'Rahma Groupe',
-                                                  style: TextStyle(
-                                                      fontSize: 15,
-                                                      color: Colors.blueGrey),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(
-                                              width: 20,
-                                            ),
-                                            Row(
-                                              children: [
-                                                Image.asset(
-                                                  'assets/logo/lg_icon.png',
-                                                  width: 30,
-                                                ),
-                                                Text(
-                                                  'Rahma Groupe',
-                                                  style: TextStyle(
-                                                      fontSize: 15,
-                                                      color: Colors.blueGrey),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(
-                                              width: 20,
-                                            ),
-                                            Row(
-                                              children: [
-                                                Image.asset(
-                                                  'assets/logo/lg_icon.png',
-                                                  width: 30,
-                                                ),
-                                                Text(
-                                                  'Rahma Groupe',
-                                                  style: TextStyle(
-                                                      fontSize: 15,
-                                                      color: Colors.blueGrey),
-                                                ),
-                                              ],
-                                            ),
-                                            SizedBox(
-                                              width: 20,
-                                            ),
-                                            Row(
-                                              children: [
-                                                Image.asset(
-                                                  'assets/logo/lg_icon.png',
-                                                  width: 30,
-                                                ),
-                                                Text(
-                                                  'Rahma Groupe',
-                                                  style: TextStyle(
-                                                      fontSize: 15,
-                                                      color: Colors.blueGrey),
-                                                ),
-                                              ],
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
+                                            TextSpan(text: "!")
+                                          ]
+                                      )
                                   ),
                                 ),
+                              ],
+                            )
+                        ),
+                      );
+                    },
+                  ),
+                  SizedBox(
+                    height: 27,
+                  ),
+
+                  ///**********Vision
+                  ///
+                  LayoutBuilder(
+                    builder: (context, constraints) {
+                      double screenWidth = constraints.maxWidth;
+                      bool isMobile = screenWidth < 768;
+                      bool isTablet = screenWidth >= 768 && screenWidth < 1024;
+
+                      return AnimatedGradientBorder(
+                        borderSize: 1,
+                        glowSize: 1,
+                        animationTime: 17,
+                        gradientColors: [
+                          Colors.transparent,
+                          Colors.transparent,
+                          Colors.transparent,
+                          Colors.blue
+                        ],
+                        animationProgress: null,
+                        borderRadius: BorderRadius.circular(20),
+                        child: Container(
+                          width: double.infinity,
+                          padding: EdgeInsets.all(_getMainPadding(screenWidth)),
+                          decoration: BoxDecoration(
+                            color: Color.fromRGBO(39, 39, 48, 1),
+                            borderRadius: BorderRadius.circular(20),
+                            border: Border.all(width: 0.5, color: Colors.blueGrey),
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              // Titre principal
+                              _buildMainTitle(screenWidth),
+
+                              SizedBox(height: _getSpacing(screenWidth)),
+
+                              // Contenu adaptatif selon la taille d'écran
+                              isMobile
+                                  ? _buildMobileLayoutVision(screenWidth)
+                                  : _buildDesktopLayoutVision(
+                                  screenWidth, isTablet),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                  SizedBox(
+                    height: 27,
+                  ),
+
+                  ///-----pause
+                  ///**************values
+                  ResponsiveValuesSection(),
+                  SizedBox(
+                    height: 27,
+                  ),
+                  ResponsiveProjectsSection(),
+                  SizedBox(
+                    height: 27,
+                  ),
+                  ResponsiveSkillsSection(width: width),
+                  SizedBox(
+                    height: 27,
+                  ),
+                  Text(
+                    "• Articles",
+                    style: TextStyle(
+                      fontSize: 19,
+                      color: Colors.blue,
+                    ),
+                  ),
+                  Text(
+                    "Dernières nouvelles",
+                    style: TextStyle(
+                      fontSize: 37,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.white,
+                    ),
+                  ),
+                  SizedBox(
+                    height: 27,
+                  ),
+                  /*Row(
+                    spacing: 25,
+                    children: [
+                      Expanded(
+                        child: BlogCard(
+                          imageUrl: 'assets/blog/stage.png',
+                          category: 'Rahma Group',
+                          date: '30 Mai, 2025',
+                          title: 'Stage pratique',
+                          description:
+                          "Nous recherchons un(e) stagiaire pour le compte de Rahma group\nRejoins l'avanture",
+                          link: '#',
+                        ),
+                      ),
+                      Expanded(
+                        child: BlogCard(
+                          imageUrl: 'assets/logo/el.jpg',
+                          category: 'Entreprise',
+                          date: '30 Mai, 2025',
+                          title: 'EL ENTERPRISES',
+                          description:
+                          'La référence incontournable da la distribution transfrontalière entre\nle Niger et le Nigeria',
+                          link: 'wa.me/22788086940',
+                        ),
+                      ),
+                      Expanded(
+                        child: BlogCard(
+                          imageUrl: 'assets/logo/rahma_matjar.png',
+                          category: 'E-Commerce',
+                          date: '30 Mai, 2025',
+                          title: 'Rahma Matjar',
+                          description:
+                          "Découvrez Rahma Matjar, votre nouvelle destination pour des achats en ligne rapides et sécurisés",
+                          link:
+                          'https://play.google.com/store/apps/details?id=ne.rahma.matjar&pcampaignid=web_share',
+                        ),
+                      ),
+                    ],
+                  ),*/
+                  LayoutBuilder(
+                    builder: (context, constraints) {
+                      // Définir les breakpoints
+                      bool isMobile = constraints.maxWidth < 600;
+                      bool isTablet = constraints.maxWidth >= 600 && constraints.maxWidth < 1024;
+                      bool isDesktop = constraints.maxWidth >= 1024;
+
+                      // Calculer le nombre de colonnes selon la taille d'écran
+                      int crossAxisCount;
+                      double childAspectRatio;
+                      double spacing;
+
+                      if (isMobile) {
+                        crossAxisCount = 1; // Une colonne sur mobile
+                        childAspectRatio = 0.85;
+                        spacing = 15;
+                      } else if (isTablet) {
+                        crossAxisCount = 2; // Deux colonnes sur tablette
+                        childAspectRatio = 0.8;
+                        spacing = 20;
+                      } else {
+                        crossAxisCount = 3; // Trois colonnes sur desktop
+                        childAspectRatio = 0.75;
+                        spacing = 25;
+                      }
+
+                      return GridView.count(
+                        shrinkWrap: true,
+                        physics: NeverScrollableScrollPhysics(),
+                        crossAxisCount: crossAxisCount,
+                        crossAxisSpacing: spacing,
+                        mainAxisSpacing: spacing,
+                        childAspectRatio: childAspectRatio,
+                        children: [
+                          BlogCard(
+                            imageUrl: 'assets/blog/stage.png',
+                            category: 'Rahma Group',
+                            date: '30 Mai, 2025',
+                            title: 'Stage pratique',
+                            description: "Nous recherchons un(e) stagiaire pour le compte de Rahma group\nRejoins l'aventure",
+                            link: '#',
+                          ),
+                          BlogCard(
+                            imageUrl: 'assets/logo/el.jpg',
+                            category: 'Entreprise',
+                            date: '30 Mai, 2025',
+                            title: 'EL ENTERPRISES',
+                            description: 'La référence incontournable de la distribution transfrontalière entre\nle Niger et le Nigeria',
+                            link: 'wa.me/22788086940',
+                          ),
+                          BlogCard(
+                            imageUrl: 'assets/logo/rahma_matjar.png',
+                            category: 'E-Commerce',
+                            date: '30 Mai, 2025',
+                            title: 'Rahma Matjar',
+                            description: "Découvrez Rahma Matjar, votre nouvelle destination pour des achats en ligne rapides et sécurisés",
+                            link: 'https://play.google.com/store/apps/details?id=ne.rahma.matjar&pcampaignid=web_share',
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                  SizedBox(
+                    height: 27,
+                  ),
+                  // Section Contact Responsive
+                  LayoutBuilder(
+                    builder: (context, constraints) {
+                      // Définir les breakpoints
+                      bool isMobile = constraints.maxWidth < 768;
+                      bool isTablet = constraints.maxWidth >= 768 && constraints.maxWidth < 1024;
+
+                      // Variables responsives
+                      double titleFontSize = isMobile ? 28 : isTablet ? 32 : 37;
+                      double spacing = isMobile ? 20 : 27;
+                      double contactItemSpacing = isMobile ? 12 : 15;
+                      double iconPadding = isMobile ? 12 : 15;
+                      double labelFontSize = isMobile ? 14 : 16;
+                      double valueFontSize = isMobile ? 16 : 19;
+
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        children: [
+                          Align(
+                            alignment: Alignment.topLeft,
+                            child: Text(
+                              "Contactez-nous",
+                              style: TextStyle(
+                                fontSize: titleFontSize,
+                                fontWeight: FontWeight.w500,
+                                color: Colors.blue,
+                              ),
+                            ),
+                          ),
+                          SizedBox(height: spacing),
+
+                          // Layout adaptatif : Column sur mobile, Row sur desktop/tablette
+                          isMobile
+                              ? Column(
+                            children: [
+                              ContactForm(),
+                              SizedBox(height: spacing),
+                              _buildContactInfo(
+                                isMobile: isMobile,
+                                contactItemSpacing: contactItemSpacing,
+                                iconPadding: iconPadding,
+                                labelFontSize: labelFontSize,
+                                valueFontSize: valueFontSize,
+                              ),
+                            ],
+                          )
+                              : Row(
+                            spacing: spacing,
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Expanded(child: ContactForm()),
+                              Expanded(
+                                child: _buildContactInfo(
+                                  isMobile: isMobile,
+                                  contactItemSpacing: contactItemSpacing,
+                                  iconPadding: iconPadding,
+                                  labelFontSize: labelFontSize,
+                                  valueFontSize: valueFontSize,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      );
+                    },
+                  ),
+                  /*Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Align(
+                        alignment: Alignment.topLeft,
+                        child: Text(
+                          "Contactez-nous",
+                          style: TextStyle(
+                            fontSize: 37,
+                            fontWeight: FontWeight.w500,
+                            color: Colors.blue,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 27,
+                      ),
+                      Row(
+                        spacing: 27,
+                        children: [
+                          Expanded(child: ContactForm()),
+                          Expanded(
+                            child: Column(
+                              spacing: 20,
+                              children: [
                                 Row(
+                                  spacing: 15,
                                   children: [
                                     Container(
-                                      width: 100,
-                                      height: 100,
-                                      margin: EdgeInsets.only(left: 25),
+                                      padding: EdgeInsets.all(15),
                                       decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(100),
-                                          border: Border.all(
-                                              color: Colors.blueGrey,
-                                              width: .5),
-                                          color: Colors.transparent),
-                                      child: Container(
-                                        width: 75,
-                                        height: 75,
-                                        margin: EdgeInsets.all(15),
-                                        decoration: BoxDecoration(
-                                          borderRadius:
-                                              BorderRadius.circular(100),
-                                          border: Border.all(
-                                              color: Colors.blueGrey,
-                                              width: .5),
-                                        ),
-                                        child: Container(
-                                          width: 75,
-                                          height: 75,
-                                          margin: EdgeInsets.all(15),
-                                          decoration: BoxDecoration(
-                                              borderRadius:
-                                                  BorderRadius.circular(100),
-                                              border: Border.all(
-                                                  color: Colors.blueGrey,
-                                                  width: .5),
-                                              color: Colors.pink),
+                                        color: Color.fromRGBO(39, 39, 48, 1),
+                                        borderRadius: BorderRadius.circular(7),
+                                        border: Border.all(
+                                            width: .5, color: Colors.blueGrey),
+                                      ),
+                                      child: Center(
+                                        child: Icon(
+                                          Icons.phone_outlined,
+                                          color: Colors.blue,
                                         ),
                                       ),
                                     ),
                                     Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
+                                      crossAxisAlignment: CrossAxisAlignment.start,
                                       children: [
-                                        TextButton(
-                                          onPressed: () {},
-                                          child: Row(
-                                            children: [
-                                              Icon(
-                                                Icons.facebook_outlined,
-                                                color: Colors.white,
-                                                size: 23,
-                                              ),
-                                              SizedBox(
-                                                width: 11,
-                                              ),
-                                              Text(
-                                                "[facebook]",
-                                                style: TextStyle(
-                                                  fontSize: 17,
-                                                  color: Colors.grey,
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: 11,
-                                              ),
-                                              Text(
-                                                "Rahma Groupe",
-                                                style: TextStyle(
-                                                  fontSize: 17,
-                                                  color: Colors.pink[700],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
+                                        Text(
+                                          'Téléphone',
+                                          style: TextStyle(
+                                              color: Colors.grey, fontSize: 16),
                                         ),
-                                        TextButton(
-                                          onPressed: () {},
-                                          child: Row(
-                                            children: [
-                                              Icon(
-                                                Icons.mail_outline,
-                                                color: Colors.white,
-                                                size: 23,
-                                              ),
-                                              SizedBox(
-                                                width: 11,
-                                              ),
-                                              Text(
-                                                "[email]",
-                                                style: TextStyle(
-                                                  fontSize: 17,
-                                                  color: Colors.grey,
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: 11,
-                                              ),
-                                              Text(
-                                                "rahmamatjar@gmail.com",
-                                                style: TextStyle(
-                                                  fontSize: 17,
-                                                  color: Colors.pink[700],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                        TextButton(
-                                          onPressed: () {},
-                                          child: Row(
-                                            children: [
-                                              Icon(
-                                                Icons.phone_outlined,
-                                                color: Colors.white,
-                                                size: 23,
-                                              ),
-                                              SizedBox(
-                                                width: 11,
-                                              ),
-                                              Text(
-                                                "[téléphone]",
-                                                style: TextStyle(
-                                                  fontSize: 17,
-                                                  color: Colors.grey,
-                                                ),
-                                              ),
-                                              SizedBox(
-                                                width: 11,
-                                              ),
-                                              Text(
-                                                "(+227) 80 76 76 90",
-                                                style: TextStyle(
-                                                  fontSize: 17,
-                                                  color: Colors.pink[700],
-                                                ),
-                                              ),
-                                            ],
-                                          ),
+                                        Text(
+                                          '+227 80 76 76 90',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 19),
                                         ),
                                       ],
                                     ),
                                   ],
                                 ),
-                                SizedBox(
-                                  height: 27,
+                                Row(
+                                  spacing: 15,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(15),
+                                      decoration: BoxDecoration(
+                                        color: Color.fromRGBO(39, 39, 48, 1),
+                                        borderRadius: BorderRadius.circular(7),
+                                        border: Border.all(
+                                            width: .5, color: Colors.blueGrey),
+                                      ),
+                                      child: Center(
+                                        child: Icon(
+                                          Icons.mail_outline,
+                                          color: Colors.blue,
+                                        ),
+                                      ),
+                                    ),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Email',
+                                          style: TextStyle(
+                                              color: Colors.grey, fontSize: 16),
+                                        ),
+                                        Text(
+                                          'rahmamatjar@gmail.com',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 19),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  spacing: 15,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(15),
+                                      decoration: BoxDecoration(
+                                        color: Color.fromRGBO(39, 39, 48, 1),
+                                        borderRadius: BorderRadius.circular(7),
+                                        border: Border.all(
+                                            width: .5, color: Colors.blueGrey),
+                                      ),
+                                      child: Center(
+                                        child: Icon(
+                                          Icons.person_2_outlined,
+                                          color: Colors.blue,
+                                        ),
+                                      ),
+                                    ),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Facebook',
+                                          style: TextStyle(
+                                              color: Colors.grey, fontSize: 16),
+                                        ),
+                                        Text(
+                                          'Rahma Matjar',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 19),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                                Row(
+                                  spacing: 15,
+                                  children: [
+                                    Container(
+                                      padding: EdgeInsets.all(15),
+                                      decoration: BoxDecoration(
+                                        color: Color.fromRGBO(39, 39, 48, 1),
+                                        borderRadius: BorderRadius.circular(7),
+                                        border: Border.all(
+                                            width: .5, color: Colors.blueGrey),
+                                      ),
+                                      child: Center(
+                                        child: Icon(
+                                          Icons.location_on_outlined,
+                                          color: Colors.blue,
+                                        ),
+                                      ),
+                                    ),
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Adresse',
+                                          style: TextStyle(
+                                              color: Colors.grey, fontSize: 16),
+                                        ),
+                                        Text(
+                                          'Ny 2000, Niamey - Niger',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                              fontSize: 19),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
                                 ),
                               ],
                             ),
                           ),
-                        ),
-                        Positioned(
-                          bottom: 60,
-                          right: 60,
-                          child: OrbitRadar(),
-                        )
-                      ],
-                    ),
-                  ),
+                        ],
+                      ),
+                    ],
+                  ),*/
                   SizedBox(
-                    width: 20,
+                    height: 27,
                   ),
-                  Expanded(
-                    flex: 2,
-                    child: Container(
-                      width: double.infinity,
-                      padding: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(39, 39, 48, 1),
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(width: .5, color: Colors.blueGrey),
-                      ),
-                      child: Stack(
-                        children: [
-                          // ligne verticale
-                          Positioned.fill(
-                            left: 20,
-                            top: 50,
-                            bottom: 50,
-                            child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: Container(
-                                width: 2,
-                                color: Colors.grey.shade800,
-                              ),
-                            ),
-                          ),
-
-                          // contenu principal
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  CircleAvatar(
-                                    radius: 4,
-                                    backgroundColor:
-                                        Colors.green,
-                                  ),
-                                  const SizedBox(width: 8),
-                                  const Text(
-                                    "Nos Valeurs – Ce qui guide Rahma Group",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const SizedBox(height: 26),
-                              ...entries.map(
-                                (entry) => Padding(
-                                  padding: const EdgeInsets.only(left: 24, bottom: 27,),
-                                  child: Row(
-                                    spacing: 15,
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Expanded(
-                                        flex: 2,
-                                        child: Text(
-                                          entry["title"]!,
-                                          style: TextStyle(
-                                            color: Colors.grey.shade400,
-                                            fontSize: 16,
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        flex: 3,
-                                         child: Text(
-                                          entry["content"]!,
-                                          textAlign: TextAlign.justify,
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          // overlay (ombre en bas)
-                          Positioned(
-                            bottom: 0,
-                            left: 0,
-                            right: 0,
-                            //height: 40,
-                            child: IgnorePointer(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors: [
-                                      Colors.transparent,
-                                      Color(0xFF272730),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
+                  Divider(),
+                  SizedBox(
+                    height: 27,
                   ),
-                ],
-              ),
-              SizedBox(
-                height: 27,
-              ),
-              AnimatedGradientBorder(
-                borderSize: 1,
-                glowSize: 1,
-                animationTime: 17,
-                gradientColors: [
-                  Colors.transparent,
-                  Colors.transparent,
-                  Colors.transparent,
-                  Colors.blue
-                ],
-                animationProgress: null,
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                    width: double.infinity,
-                    padding: EdgeInsets.all(16),
-                    decoration: BoxDecoration(
-                      color: Color.fromRGBO(39, 39, 48, 1),
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(width: .5, color: Colors.blueGrey),
-                    ),
-                    child: Column(
-                      children: [
-                        Text(
-                          "• Ce que nous savons faire",
-                          style: TextStyle(
-                            fontSize: 19,
-                            color: Colors.green,
-                          ),
-                        ),
-                        Text.rich(
-                          textAlign: TextAlign.center,
-                          style: TextStyle(
-                            fontSize: 37,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                          ),
-                          TextSpan(
-                            children: [
-                              TextSpan(text: "Concevoir des solutions"),
-                              TextSpan(
-                                  text:
-                                      " personnalisées\npour répondre à vos besoins",
-                                  style: TextStyle(color: Colors.grey)),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        GridView(
-                          shrinkWrap: true,
-                          gridDelegate:
-                              SliverGridDelegateWithFixedCrossAxisCount(
-                                  crossAxisCount: 3),
-                          padding: EdgeInsets.all(20),
-                          children: [
-                            Container(
-                                //width: double.infinity,
-                                padding: EdgeInsets.symmetric(horizontal: 50),
-                                margin: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  color: Color.fromRGBO(39, 39, 48, 1),
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(
-                                      width: .5, color: Colors.blueGrey),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.min,
-                                  spacing: 10,
-                                  children: [
-                                    Text(
-                                      "Mobile - WEB",
-                                      style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.green,
-                                      ),
-                                    ),
-                                    Text(
-                                      "DEVELOPPEMENT d'APPLICATION MOBILE et WEB",
-                                      style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    Text(
-                                      "Conception et développement d'applications mobiles, Android et iOS et"
-                                          " sites web e-commerce, vitrines ou institutionnels",
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 13),
-                                    ),
-                                  ],
-                                )),
-                            Container(
-                                //width: double.infinity,
-                                padding: EdgeInsets.symmetric(horizontal: 50),
-                                margin: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  color: Color.fromRGBO(39, 39, 48, 1),
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(
-                                      width: .5, color: Colors.blueGrey),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.min,
-                                  spacing: 10,
-                                  children: [
-                                    Text(
-                                      "API",
-                                      style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.green,
-                                      ),
-                                    ),
-                                    Text(
-                                      "DEVELOPPEMENT d'API",
-                                      style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    Text(
-                                      "Conception et développement d'API évolutives pour les applications web et mobiles",
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 13),
-                                    ),
-                                  ],
-                                )),
-                            Container(
-                                //width: double.infinity,
-                                padding: EdgeInsets.symmetric(horizontal: 50),
-                                margin: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  color: Color.fromRGBO(39, 39, 48, 1),
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(
-                                      width: .5, color: Colors.blueGrey),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.min,
-                                  spacing: 10,
-                                  children: [
-                                    Text(
-                                      "DESIGN",
-                                      style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.green,
-                                      ),
-                                    ),
-                                    Text(
-                                      "DESIGN - IDENTITE VISUELLE",
-                                      style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    Text(
-                                      "Conception graphique, UX/UI design, illustrations, "
-                                          "supports de communication (affiches, flyers, réseaux sociaux…)",
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 13),
-                                    ),
-                                  ],
-                                )),
-                            Container(
-                                //width: double.infinity,
-                                padding: EdgeInsets.symmetric(horizontal: 50),
-                                margin: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  color: Color.fromRGBO(39, 39, 48, 1),
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(
-                                      width: .5, color: Colors.blueGrey),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.min,
-                                  spacing: 10,
-                                  children: [
-                                    Text(
-                                      "MAINTENACE",
-                                      style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.green,
-                                      ),
-                                    ),
-                                    Text(
-                                      "MAINTENACE & SUIVI",
-                                      style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    Text(
-                                      "Nous assurons la maintenance technique de vos plateformes : mises à jour, "
-                                          "sécurité, correctifs, optimisation… Pour que votre outil reste stable, "
-                                          "rapide et opérationnel",
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 13),
-                                    ),
-                                  ],
-                                )),
-                            Container(
-                                //width: double.infinity,
-                                padding: EdgeInsets.symmetric(horizontal: 50),
-                                margin: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  color: Color.fromRGBO(39, 39, 48, 1),
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(
-                                      width: .5, color: Colors.blueGrey),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.min,
-                                  spacing: 10,
-                                  children: [
-                                    Text(
-                                      "REFONTE",
-                                      style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.green,
-                                      ),
-                                    ),
-                                    Text(
-                                      "REFONTE - OPTIMISATION",
-                                      style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    Text(
-                                      "Nous analysons votre site, application ou identité visuelle, puis proposons "
-                                          "une refonte sur-mesure : plus moderne, plus claire, mieux alignée avec "
-                                          "vos objectifs et vos utilisateurs",
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 13),
-                                    ),
-                                  ],
-                                )),
-                            Container(
-                                //width: double.infinity,
-                                padding: EdgeInsets.symmetric(horizontal: 50),
-                                margin: EdgeInsets.all(10),
-                                decoration: BoxDecoration(
-                                  color: Color.fromRGBO(39, 39, 48, 1),
-                                  borderRadius: BorderRadius.circular(10),
-                                  border: Border.all(
-                                      width: .5, color: Colors.blueGrey),
-                                ),
-                                child: Column(
-                                  crossAxisAlignment:
-                                      CrossAxisAlignment.start,
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  mainAxisSize: MainAxisSize.min,
-                                  spacing: 10,
-                                  children: [
-                                    Text(
-                                      "FORMATIONS",
-                                      style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.green,
-                                      ),
-                                    ),
-                                    Text(
-                                      "FORMATION ET ACCOMPAGNEMENT",
-                                      style: TextStyle(
-                                        fontSize: 19,
-                                        color: Colors.white,
-                                      ),
-                                    ),
-                                    Text(
-                                      "Transmission de compétences à des apprenants débutants, "
-                                          "formation en technologies web et mobile, infographie, "
-                                          "création de contenus pédagogiques, supervision de mini-projets",
-                                      style: TextStyle(
-                                          color: Colors.grey, fontSize: 13),
-                                    ),
-                                  ],
-                                )),
-                          ],
-                        ),
-                        Text.rich(
-                            textAlign: TextAlign.center,
-                            style: TextStyle(color: Colors.white),
-                            TextSpan(children: [
-                              TextSpan(
-                                text:
-                                    "Excité de prendre de nouveaux projets et de collaborer, discutons de vos idées.\n"
-                                    "N'hésitez pas à ",
-                              ),
-                              TextSpan(
-                                  text: "nous contacter ",
-                                  style: TextStyle(color: Colors.green)),
-                              TextSpan(text: "!")
-                            ])),
-                      ],
-                    )),
-              ),
-              SizedBox(
-                height: 27,
-              ),
-              AnimatedGradientBorder(
-                borderSize: 1,
-                glowSize: 1,
-                animationTime: 17,
-                gradientColors: [
-                  Colors.transparent,
-                  Colors.transparent,
-                  Colors.transparent,
-                  Colors.blue
-                ],
-                animationProgress: null,
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                    width: double.infinity,
-                    padding: EdgeInsets.all(40),
-                    decoration: BoxDecoration(
-                      color: Color.fromRGBO(39, 39, 48, 1),
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(width: .5, color: Colors.blueGrey),
-                    ),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        /*Text(
-                          "• Expérience",
-                          style: TextStyle(
-                            fontSize: 19,
-                            color: Colors.green,
-                          ),
-                        ),*/
-                        Text.rich(
-                          style: TextStyle(
-                            fontSize: 37,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                          ),
-                          TextSpan(
-                            children: [
-                              TextSpan(text: "Une vision par étapes :"),
-                              TextSpan(
-                                  text: "\nbâtir un écosystème cohérent",
-                                  style: TextStyle(color: Colors.grey)),
-                            ],
-                          ),
-                        ),
-                        SizedBox(
-                          height: 20,
-                        ),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              flex: 2,
-                              child: ListView(
-                                shrinkWrap: true,
-                                children: [
-                                  Container(
-                                    //width: double.infinity,
-                                    padding: EdgeInsets.only(
-                                        top: 10, bottom: 10, left: 20),
-                                    margin: EdgeInsets.only(bottom: 10),
-                                    decoration: BoxDecoration(
-                                      color: Color.fromRGBO(39, 39, 48, 1),
-                                      borderRadius: BorderRadius.circular(7),
-                                      border: Border.all(
-                                          width: .5, color: Colors.blueGrey),
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Image.asset(
-                                          'assets/logo/rahma_matjar.png',
-                                          width: 30,
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              'Rahma Matjar',
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 19),
-                                            ),
-                                            Text('Marketplace',
-                                                style: TextStyle(
-                                                  color: Colors.grey,
-                                                )),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    //width: double.infinity,
-                                    padding: EdgeInsets.only(
-                                        top: 10, bottom: 10, left: 20),
-                                    margin: EdgeInsets.only(bottom: 10),
-                                    decoration: BoxDecoration(
-                                      color: Color.fromRGBO(39, 39, 48, 1),
-                                      borderRadius: BorderRadius.circular(7),
-                                      border: Border.all(
-                                          width: .5, color: Colors.blueGrey),
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Image.asset(
-                                          'assets/logo/rafiq.png',
-                                          width: 30,
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              'RAFIQ',
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 19),
-                                            ),
-                                            Text('Elevage',
-                                                style: TextStyle(
-                                                  color: Colors.grey,
-                                                )),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    //width: double.infinity,
-                                    padding: EdgeInsets.only(
-                                        top: 10, bottom: 10, left: 20),
-                                    margin: EdgeInsets.only(bottom: 10),
-                                    decoration: BoxDecoration(
-                                      color: Color.fromRGBO(39, 39, 48, 1),
-                                      borderRadius: BorderRadius.circular(7),
-                                      border: Border.all(
-                                          width: .5, color: Colors.blueGrey),
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Image.asset(
-                                          'assets/logo/lg_icon.png',
-                                          width: 30,
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              'RaTech',
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 19),
-                                            ),
-                                            Text('Technologie',
-                                                style: TextStyle(
-                                                  color: Colors.grey,
-                                                )),
-                                          ],
-                                        )
-                                      ],
-                                    ),
-                                  ),
-                                  Container(
-                                    //width: double.infinity,
-                                    padding: EdgeInsets.only(
-                                        top: 10, bottom: 10, left: 20),
-                                    margin: EdgeInsets.only(bottom: 10),
-                                    decoration: BoxDecoration(
-                                      color: Color.fromRGBO(39, 39, 48, 1),
-                                      borderRadius: BorderRadius.circular(7),
-                                      border: Border.all(
-                                          width: .5, color: Colors.blueGrey),
-                                    ),
-                                    child: Row(
-                                      children: [
-                                        Image.asset(
-                                          'assets/logo/lg_icon.png',
-                                          width: 30,
-                                        ),
-                                        SizedBox(
-                                          width: 20,
-                                        ),
-                                        Column(
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Text(
-                                              'RGL',
-                                              style: TextStyle(
-                                                  color: Colors.white,
-                                                  fontSize: 19),
-                                            ),
-                                            Text('Livraison',
-                                                style: TextStyle(
-                                                  color: Colors.grey,
-                                                )),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                            SizedBox(
-                              width: 20,
-                            ),
-                            Expanded(
-                              flex: 4,
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    "Une communauté, pas seulement une clientèle",
-                                    style: GoogleFonts.aboreto(
-                                      color: Colors.green,
-                                      fontSize: 23,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Text.rich(
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 19,
-                                    ),
-                                    TextSpan(
-                                      children: [
-                                        TextSpan(
-                                            text:
-                                                "• Rahma Group ne veut pas seulement avoir des clients. Nous voulons bâtir une "),
-                                        TextSpan(
-                                          text: "communauté vivante, solidaire et participative, ",
-                                          style: TextStyle(
-                                            color: Colors.pink[700],
-                                          ),
-                                        ),
-                                        TextSpan(
-                                            text:
-                                                "où chaque personne qui rejoint notre univers devient aussi actrice du changement"),
-                                      ],
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 15,
-                                  ),
-                                  Text.rich(
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 19,
-                                    ),
-                                    TextSpan(
-                                      children: [
-                                        TextSpan(
-                                            text:
-                                                "• Notre vision ne se limite pas à la recherche de profit. Elle repose sur une ambition plus large : "),
-                                        TextSpan(
-                                          text: "mettre l'entreprise au service du bien commun, ",
-                                          style: TextStyle(
-                                            color: Colors.pink[700],
-                                          ),
-                                        ),
-                                        TextSpan(
-                                            text:
-                                                "en apportant des solutions concrètes à des besoins essentiels"),
-                                      ],
-                                    ),
-                                  ),
-                                  SizedBox(
-                                    height: 30,
-                                  ),
-                                  Row(
-                                    spacing: 10,
-                                    children: [
-                                      Container(
-                                        //width: double.infinity,
-                                        padding: EdgeInsets.all(5),
-                                        margin: EdgeInsets.only(bottom: 3),
-                                        decoration: BoxDecoration(
-                                          color:
-                                              Color.fromRGBO(39, 39, 48, 1),
-                                          borderRadius:
-                                              BorderRadius.circular(7),
-                                          border: Border.all(
-                                              width: .5,
-                                              color: Colors.blueGrey),
-                                        ),
-                                        child: Text(
-                                          "Se nourrir",
-                                          style: TextStyle(
-                                            color: Colors.grey,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        //width: double.infinity,
-                                        padding: EdgeInsets.all(5),
-                                        margin: EdgeInsets.only(bottom: 3),
-                                        decoration: BoxDecoration(
-                                          color:
-                                              Color.fromRGBO(39, 39, 48, 1),
-                                          borderRadius:
-                                              BorderRadius.circular(7),
-                                          border: Border.all(
-                                              width: .5,
-                                              color: Colors.blueGrey),
-                                        ),
-                                        child: Text(
-                                          "Se soigner",
-                                          style: TextStyle(
-                                            color: Colors.grey,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        //width: double.infinity,
-                                        padding: EdgeInsets.all(5),
-                                        margin: EdgeInsets.only(bottom: 3),
-                                        decoration: BoxDecoration(
-                                          color:
-                                              Color.fromRGBO(39, 39, 48, 1),
-                                          borderRadius:
-                                              BorderRadius.circular(7),
-                                          border: Border.all(
-                                              width: .5,
-                                              color: Colors.blueGrey),
-                                        ),
-                                        child: Text(
-                                          "S'éduquer",
-                                          style: TextStyle(
-                                            color: Colors.grey,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        //width: double.infinity,
-                                        padding: EdgeInsets.all(5),
-                                        margin: EdgeInsets.only(bottom: 3),
-                                        decoration: BoxDecoration(
-                                          color:
-                                              Color.fromRGBO(39, 39, 48, 1),
-                                          borderRadius:
-                                              BorderRadius.circular(7),
-                                          border: Border.all(
-                                              width: .5,
-                                              color: Colors.blueGrey),
-                                        ),
-                                        child: Text(
-                                          "Travailler",
-                                          style: TextStyle(
-                                            color: Colors.grey,
-                                          ),
-                                        ),
-                                      ),
-                                      Container(
-                                        //width: double.infinity,
-                                        padding: EdgeInsets.all(5),
-                                        margin: EdgeInsets.only(bottom: 3),
-                                        decoration: BoxDecoration(
-                                          color:
-                                              Color.fromRGBO(39, 39, 48, 1),
-                                          borderRadius:
-                                              BorderRadius.circular(7),
-                                          border: Border.all(
-                                              width: .5,
-                                              color: Colors.blueGrey),
-                                        ),
-                                        child: Text(
-                                          "Vivre dignement",
-                                          style: TextStyle(
-                                            color: Colors.grey,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        )
-                      ],
-                    ),
-                ),
-              ),
-              SizedBox(
-                height: 27,
-              ),
-              Row(
-                spacing: 20,
-                children: [
-                  Expanded(
-                    flex: 2,
-                    child: Container(
-                      width: double.infinity,
-                      padding: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(39, 39, 48, 1),
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(width: .5, color: Colors.blueGrey),
-                      ),
-                      child: Stack(
-                        children: [
-                          // ligne verticale
-                          Positioned.fill(
-                            left: 20,
-                            top: 50,
-                            bottom: 50,
-                            child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: Container(
-                                width: 2,
-                                color: Colors.grey.shade800,
-                              ),
-                            ),
-                          ),
-
-                          // contenu principal
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  CircleAvatar(
-                                    radius: 4,
-                                    backgroundColor:
-                                    Colors.green,
-                                  ),
-                                  const SizedBox(width: 8),
-                                  const Text(
-                                    "Nos Valeurs – Ce qui guide Rahma Group",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const SizedBox(height: 26),
-                              ...entries1.map(
-                                    (entry) => Padding(
-                                  padding: const EdgeInsets.only(left: 24, bottom: 27,),
-                                  child: Row(
-                                    spacing: 15,
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Expanded(
-                                        flex: 2,
-                                        child: Text(
-                                          entry["title"]!,
-                                          style: TextStyle(
-                                            color: Colors.grey.shade400,
-                                            fontSize: 16,
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        flex: 3,
-                                        child: Text(
-                                          entry["content"]!,
-                                          textAlign: TextAlign.justify,
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          // overlay (ombre en bas)
-                          Positioned(
-                            bottom: 0,
-                            left: 0,
-                            right: 0,
-                            //height: 40,
-                            child: IgnorePointer(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors: [
-                                      Colors.transparent,
-                                      Color(0xFF272730),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Container(
-                      width: double.infinity,
-                      padding: EdgeInsets.all(16),
-                      decoration: BoxDecoration(
-                        color: Color.fromRGBO(39, 39, 48, 1),
-                        borderRadius: BorderRadius.circular(20),
-                        border: Border.all(width: .5, color: Colors.blueGrey),
-                      ),
-                      child: Stack(
-                        children: [
-                          // ligne verticale
-                          Positioned.fill(
-                            left: 20,
-                            top: 50,
-                            bottom: 50,
-                            child: Align(
-                              alignment: Alignment.centerLeft,
-                              child: Container(
-                                width: 2,
-                                color: Colors.grey.shade800,
-                              ),
-                            ),
-                          ),
-
-                          // contenu principal
-                          Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Row(
-                                children: [
-                                  CircleAvatar(
-                                    radius: 4,
-                                    backgroundColor:
-                                    Colors.green,
-                                  ),
-                                  const SizedBox(width: 8),
-                                  const Text(
-                                    "Nos Valeurs – Ce qui guide Rahma Group",
-                                    style: TextStyle(
-                                      color: Colors.white,
-                                      fontWeight: FontWeight.bold,
-                                      fontSize: 16,
-                                    ),
-                                  )
-                                ],
-                              ),
-                              const SizedBox(height: 26),
-                              ...entries2.map(
-                                    (entry) => Padding(
-                                  padding: const EdgeInsets.only(left: 24, bottom: 27,),
-                                  child: Row(
-                                    spacing: 5,
-                                    crossAxisAlignment:
-                                    CrossAxisAlignment.start,
-                                    mainAxisAlignment: MainAxisAlignment.center,
-                                    children: [
-                                      Expanded(
-                                        flex: 1,
-                                        child: Text(
-                                          entry["title"]!,
-                                          style: TextStyle(
-                                            color: Colors.grey.shade400,
-                                            fontSize: 16,
-                                          ),
-                                        ),
-                                      ),
-                                      Expanded(
-                                        flex: 3,
-                                        child: Text(
-                                          entry["content"]!,
-                                          textAlign: TextAlign.justify,
-                                          style: const TextStyle(
-                                            color: Colors.white,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-
-                          // overlay (ombre en bas)
-                          Positioned(
-                            bottom: 0,
-                            left: 0,
-                            right: 0,
-                            //height: 40,
-                            child: IgnorePointer(
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors: [
-                                      Colors.transparent,
-                                      Color(0xFF272730),
-                                    ],
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 27,
-              ),
-              AnimatedGradientBorder(
-                borderSize: 1,
-                glowSize: 1,
-                animationTime: 17,
-                gradientColors: [
-                  Colors.transparent,
-                  Colors.transparent,
-                  Colors.transparent,
-                  Colors.blue
-                ],
-                animationProgress: null,
-                borderRadius: BorderRadius.circular(20),
-                child: Container(
-                  width: double.infinity,
-                  padding: EdgeInsets.all(16),
-                  decoration: BoxDecoration(
-                    image: DecorationImage(
-                      fit: BoxFit.fitWidth,
-                      repeat: ImageRepeat.repeatY,
-                      image: AssetImage(
-                        'assets/images/static-bg.png',
-                      ),
-                    ),
-                    color: Color.fromRGBO(39, 39, 48, 1),
-                    borderRadius: BorderRadius.circular(20),
-                    border: Border.all(width: .5, color: Colors.blueGrey),
-                  ),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        "• Projets",
-                        style: TextStyle(
-                          fontSize: 19,
-                          color: Colors.green,
-                        ),
-                      ),
-                      Text(
-                        "Nos projets recents",
-                        style: TextStyle(
-                          fontSize: 37,
-                          fontWeight: FontWeight.w500,
-                          color: Colors.white,
-                        ),
-                      ),
-                      SizedBox(
-                        height: 25,
-                      ),
-                      CarouselSlider(
-                        options: CarouselOptions(
-                          autoPlay: true,
-                          aspectRatio: 3.5,
-                          enlargeCenterPage: true,
-                        ),
-                        items: imageSliders,
-                      ),
-                      SizedBox(
-                        height: 25,
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-              SizedBox(
-                height: 27,
-              ),
-              Stack(
-                children: [
-                  Container(
-                    width: double.infinity,
-                    padding: EdgeInsets.all(27),
-                    decoration: BoxDecoration(
-                      color: Color.fromRGBO(39, 39, 48, 1),
-                      borderRadius: BorderRadius.circular(20),
-                      border: Border.all(width: .5, color: Colors.blueGrey),
-                    ),
-                    child: Column(
-                      children: [
-                        Text(
-                          "• Projets",
-                          style: TextStyle(
-                            fontSize: 19,
-                            color: Colors.green,
-                          ),
-                        ),
-                        Text(
-                          "Nos competences",
-                          style: TextStyle(
-                            fontSize: 37,
-                            fontWeight: FontWeight.w500,
-                            color: Colors.white,
-                          ),
-                        ),
-                        SizedBox(height: 20,),
-                        IntrinsicHeight(
-                          child: Row(
-                            children: [
-                              Expanded(
-                                child: Column(
-                                  children: [
-                                    Skills(width: width,),
-                                    Container(
-                                      margin: EdgeInsets.only(left: 100, right: 100),
-                                      padding: EdgeInsets.only(left: 20, right: 20),
-                                        //color: Colors.grey,
-                                        child: Skills(width: width,)),
-                                  ],
-                                ),
-                              ),
-                                        VerticalDivider(
-                                          color: Colors.grey,
-                                          thickness: 1,
-                                          width: 32,
-                                        ),
-                              Expanded(
-                                  child: Column(
-                                children: skills.map((skill) => _SkillItem(
-                                  category: skill['category']!,
-                                  skills: skill['skills']!,
-                                )).toList(),
-                              )),
-                            ],
-                          ),
-                        ),
-                        SizedBox(height: 27,)
-                      ],
-                    ),
-                  ),
-                  Positioned(
-                    right: 60,
-                      top: 60,
-                      child: OrbitRadar(),),
-                ],
-              ),
-              SizedBox(height: 27,),
-              Text(
-                "• Articles",
-                style: TextStyle(
-                  fontSize: 19,
-                  color: Colors.green,
-                ),
-              ),
-              Text(
-                "Dernières nouvelles",
-                style: TextStyle(
-                  fontSize: 37,
-                  fontWeight: FontWeight.w500,
-                  color: Colors.white,
-                ),
-              ),
-              SizedBox(height: 27,),
-              Row(
-                spacing: 25,
-                  children: [
-                    Expanded(
-                      child: BlogCard(
-                        imageUrl: 'https://zelio-developer.botble.com/storage/main/posts/2-1200x800.png',
-                        category: 'Technology Reviews',
-                        date: 'Dec 05, 2024 • 2 min read',
-                        title: 'How to Integrate APIs in Node.js for Your Next Project',
-                        description: 'Learn how to seamlessly integrate third-party APIs in your Node.js app...',
-                        link: 'https://zelio-developer.botble.com/how-to-integrate-apis-in-nodejs-for-your-next-project',
-                      ),
-                    ),
-                    Expanded(
-                      child: BlogCard(
-                        imageUrl: 'https://zelio-developer.botble.com/storage/main/posts/2-1200x800.png',
-                        category: 'Technology Reviews',
-                        date: 'Dec 05, 2024 • 2 min read',
-                        title: 'How to Integrate APIs in Node.js for Your Next Project',
-                        description: 'Learn how to seamlessly integrate third-party APIs in your Node.js app...',
-                        link: 'https://zelio-developer.botble.com/how-to-integrate-apis-in-nodejs-for-your-next-project',
-                      ),
-                    ),
-                    Expanded(
-                      child: BlogCard(
-                        imageUrl: 'https://zelio-developer.botble.com/storage/main/posts/2-1200x800.png',
-                        category: 'Technology Reviews',
-                        date: 'Dec 05, 2024 • 2 min read',
-                        title: 'How to Integrate APIs in Node.js for Your Next Project',
-                        description: 'Learn how to seamlessly integrate third-party APIs in your Node.js app...',
-                        link: 'https://zelio-developer.botble.com/how-to-integrate-apis-in-nodejs-for-your-next-project',
-                      ),
-                    ),
-
-                  ],
-              ),
-              SizedBox(height: 27,),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Align(
-              alignment: Alignment.topLeft,
-                    child: Text(
-                      "Contactez-nous",
-                      style: TextStyle(
-                        fontSize: 37,
-                        fontWeight: FontWeight.w500,
-                        color: Colors.green,
-                      ),
-                    ),
-                  ),
-                  SizedBox(height: 27,),
-                  Row(
-                      spacing: 27,
-                    children: [
-                      Expanded(child: ContactForm()),
-                      Expanded(
-                        child: Column(
-                          spacing: 20,
-                        children: [
-                          Row(
-                      spacing: 15,
-                            children: [
-                              Container(
-                                  padding: EdgeInsets.all(15),
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(39, 39, 48, 1),
-                                    borderRadius: BorderRadius.circular(7),
-                                    border: Border.all(width: .5, color: Colors.blueGrey),
-                                  ),
-                                    child: Center(child: Icon(Icons.phone_outlined, color: Colors.green,),),),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('Téléphone', style: TextStyle(color: Colors.grey, fontSize: 16),),
-                                  Text('+227 80 76 76 90', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 19),),
-                                ],
-                              ),
-                            ],
-                          ),
-                          Row(
-                      spacing: 15,
-                            children: [
-                              Container(
-                                  padding: EdgeInsets.all(15),
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(39, 39, 48, 1),
-                                    borderRadius: BorderRadius.circular(7),
-                                    border: Border.all(width: .5, color: Colors.blueGrey),
-                                  ),
-                                    child: Center(child: Icon(Icons.mail_outline, color: Colors.green,),),),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('Email', style: TextStyle(color: Colors.grey, fontSize: 16),),
-                                  Text('rahmamatjar@gmail.com', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 19),),
-                                ],
-                              ),
-                            ],
-                          ),
-                          Row(
-                      spacing: 15,
-                            children: [
-                              Container(
-                                  padding: EdgeInsets.all(15),
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(39, 39, 48, 1),
-                                    borderRadius: BorderRadius.circular(7),
-                                    border: Border.all(width: .5, color: Colors.blueGrey),
-                                  ),
-                                    child: Center(child: Icon(Icons.person_2_outlined, color: Colors.green,),),),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('Facebook', style: TextStyle(color: Colors.grey, fontSize: 16),),
-                                  Text('Rahma Matjar', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 19),),
-                                ],
-                              ),
-                            ],
-                          ),
-                          Row(
-                      spacing: 15,
-                            children: [
-                              Container(
-                                  padding: EdgeInsets.all(15),
-                                  decoration: BoxDecoration(
-                                    color: Color.fromRGBO(39, 39, 48, 1),
-                                    borderRadius: BorderRadius.circular(7),
-                                    border: Border.all(width: .5, color: Colors.blueGrey),
-                                  ),
-                                    child: Center(child: Icon(Icons.location_on_outlined, color: Colors.green,),),),
-                              Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text('Adresse', style: TextStyle(color: Colors.grey, fontSize: 16),),
-                                  Text('Ny 2000, Niamey - Niger', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 19),),
-                                ],
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),),
-                    ],
-                  ),
-                ],
-              ),
-              SizedBox(height: 27,),
-              Divider(),
-              SizedBox(height: 27,),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("© 2025 Rahma Group, tous droits reservés", style: TextStyle(color: Colors.white),),
-                  Row(
+                  Column(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        IconButton(onPressed: (){}, icon: Icon(Icons.facebook, color: Colors.white,),),
-                        IconButton(onPressed: (){}, icon: Icon(Icons.facebook, color: Colors.white,),),
-                        IconButton(onPressed: (){}, icon: Icon(Icons.facebook, color: Colors.white,),),
-                        IconButton(onPressed: (){}, icon: Icon(Icons.facebook, color: Colors.white,),),
-                      ],
-                  ),
-                  NavBar()
+                    children: [
+                      Text(
+                        "© 2025 Rahma Group, tous droits reservés",
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      /*Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            IconButton(onPressed: (){}, icon: Icon(Icons.facebook, color: Colors.white,),),
+                            IconButton(onPressed: (){}, icon: Icon(Icons.facebook, color: Colors.white,),),
+                            IconButton(onPressed: (){}, icon: Icon(Icons.facebook, color: Colors.white,),),
+                            IconButton(onPressed: (){}, icon: Icon(Icons.facebook, color: Colors.white,),),
+                          ],
+                      ),
+                      NavBar()*/
+                    ],
+                  )
                 ],
-              )
+              ),
+            ),
+          ),
+    );
+  }
 
+  ///***************Contact
+  ///
+  // Méthode helper pour construire les informations de contact
+  Widget _buildContactInfo({
+    required bool isMobile,
+    required double contactItemSpacing,
+    required double iconPadding,
+    required double labelFontSize,
+    required double valueFontSize,
+  }) {
+    return Column(
+      spacing: isMobile ? 15 : 20,
+      children: [
+        _buildContactItem(
+          icon: Icons.phone_outlined,
+          label: 'Téléphone',
+          value: '+227 80 76 76 90',
+          spacing: contactItemSpacing,
+          iconPadding: iconPadding,
+          labelFontSize: labelFontSize,
+          valueFontSize: valueFontSize,
+          isMobile: isMobile,
+        ),
+        _buildContactItem(
+          icon: Icons.mail_outline,
+          label: 'Email',
+          value: 'rahmamatjar@gmail.com',
+          spacing: contactItemSpacing,
+          iconPadding: iconPadding,
+          labelFontSize: labelFontSize,
+          valueFontSize: valueFontSize,
+          isMobile: isMobile,
+        ),
+        _buildContactItem(
+          icon: Icons.facebook_outlined, // Meilleure icône pour Facebook
+          label: 'Facebook',
+          value: 'Rahma Matjar',
+          spacing: contactItemSpacing,
+          iconPadding: iconPadding,
+          labelFontSize: labelFontSize,
+          valueFontSize: valueFontSize,
+          isMobile: isMobile,
+        ),
+        _buildContactItem(
+          icon: Icons.location_on_outlined,
+          label: 'Adresse',
+          value: 'Ny 2000, Niamey - Niger',
+          spacing: contactItemSpacing,
+          iconPadding: iconPadding,
+          labelFontSize: labelFontSize,
+          valueFontSize: valueFontSize,
+          isMobile: isMobile,
+        ),
+      ],
+    );
+  }
+
+// Widget helper pour chaque élément de contact
+  Widget _buildContactItem({
+    required IconData icon,
+    required String label,
+    required String value,
+    required double spacing,
+    required double iconPadding,
+    required double labelFontSize,
+    required double valueFontSize,
+    required bool isMobile,
+  }) {
+    return Row(
+      spacing: spacing,
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
+        Container(
+          padding: EdgeInsets.all(iconPadding),
+          decoration: BoxDecoration(
+            color: const Color.fromRGBO(39, 39, 48, 1),
+            borderRadius: BorderRadius.circular(7),
+            border: Border.all(width: 0.5, color: Colors.blueGrey),
+          ),
+          child: Center(
+            child: Icon(
+              icon,
+              color: Colors.blue,
+              size: isMobile ? 20 : 24,
+            ),
+          ),
+        ),
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                label,
+                style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: labelFontSize,
+                ),
+              ),
+              Text(
+                value,
+                style: TextStyle(
+                  color: Colors.white,
+                  fontWeight: FontWeight.bold,
+                  fontSize: valueFontSize,
+                ),
+                overflow: TextOverflow.ellipsis,
+                maxLines: isMobile ? 2 : 1,
+              ),
             ],
           ),
+        ),
+      ],
+    );
+  }
+
+  ///**************Vision
+  ///
+  // Padding principal adaptatif
+  double _getMainPadding(double width) {
+    if (width < 600) return 16;
+    if (width < 900) return 24;
+    if (width < 1200) return 32;
+    return 40;
+  }
+
+  // Espacement adaptatif
+  double _getSpacing(double width) {
+    if (width < 600) return 16;
+    if (width < 900) return 18;
+    return 20;
+  }
+
+  // Titre principal responsive
+  Widget _buildMainTitle(double screenWidth) {
+    double fontSize = screenWidth < 600 ? 24 :
+    screenWidth < 900 ? 30 : 37;
+
+    return Text.rich(
+      style: TextStyle(
+        fontSize: fontSize,
+        fontWeight: FontWeight.w500,
+        color: Colors.white,
+        height: 1.2,
+      ),
+      TextSpan(
+        children: [
+          TextSpan(text: "Une vision par étapes :"),
+          TextSpan(
+            text: "\nbâtir un écosystème cohérent",
+            style: TextStyle(color: Colors.grey),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Layout mobile (disposition verticale)
+  Widget _buildMobileLayoutVision(double screenWidth) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Liste des projets
+        _buildProjectsList(screenWidth, isMobileView: true),
+
+        SizedBox(height: _getSpacing(screenWidth)),
+
+        // Contenu descriptif
+        _buildDescriptiveContent(screenWidth, isMobileView: true),
+      ],
+    );
+  }
+
+  // Layout desktop/tablet (disposition horizontale)
+  Widget _buildDesktopLayoutVision(double screenWidth, bool isTablet) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.start,
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Liste des projets
+        Expanded(
+          flex: isTablet ? 3 : 2,
+          child: _buildProjectsList(screenWidth, isMobileView: false),
+        ),
+
+        SizedBox(width: _getSpacing(screenWidth)),
+
+        // Contenu descriptif
+        Expanded(
+          flex: 4,
+          child: _buildDescriptiveContent(screenWidth, isMobileView: false),
+        ),
+      ],
+    );
+  }
+
+  // Liste des projets
+  Widget _buildProjectsList(double screenWidth, {required bool isMobileView}) {
+    List<Map<String, String>> projects = [
+      {
+        'name': 'Rahma Matjar',
+        'type': 'Marketplace',
+        'logo': 'assets/logo/rahma_matjar.png'
+      },
+      {
+        'name': 'RAFIQ',
+        'type': 'Elevage',
+        'logo': 'assets/logo/rafiq.png'
+      },
+      {
+        'name': 'RaTech',
+        'type': 'Technologie',
+        'logo': 'assets/logo/lg_icon.png'
+      },
+      {
+        'name': 'RGL',
+        'type': 'Livraison',
+        'logo': 'assets/logo/lg_icon.png'
+      },
+    ];
+
+    return ListView.builder(
+      shrinkWrap: true,
+      physics: NeverScrollableScrollPhysics(),
+      itemCount: projects.length,
+      itemBuilder: (context, index) {
+        return _buildProjectCard(projects[index], screenWidth, isMobileView);
+      },
+    );
+  }
+
+  // Carte de projet
+  Widget _buildProjectCard(Map<String, String> project, double screenWidth,
+      bool isMobileView) {
+    double cardPadding = screenWidth < 600 ? 12 :
+    screenWidth < 900 ? 16 : 20;
+    double logoSize = screenWidth < 600 ? 25 : 30;
+    double titleFontSize = screenWidth < 600 ? 16 : 19;
+    double spacingBetween = screenWidth < 600 ? 12 : 20;
+
+    return Container(
+      padding: EdgeInsets.only(
+        top: cardPadding * 0.5,
+        bottom: cardPadding * 0.5,
+        left: cardPadding,
+        right: cardPadding * 0.5,
+      ),
+      margin: EdgeInsets.only(bottom: 10),
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(39, 39, 48, 1),
+        borderRadius: BorderRadius.circular(7),
+        border: Border.all(width: 0.5, color: Colors.blueGrey),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 4,
+            offset: Offset(0, 2),
+          ),
+        ],
+      ),
+      child: Row(
+        children: [
+          // Logo
+          Image.asset(
+            project['logo']!,
+            width: logoSize,
+            height: logoSize,
+            errorBuilder: (context, error, stackTrace) {
+              return Container(
+                width: logoSize,
+                height: logoSize,
+                decoration: BoxDecoration(
+                  color: Colors.blue.withOpacity(0.3),
+                  borderRadius: BorderRadius.circular(4),
+                ),
+                child: Icon(
+                  Icons.business,
+                  color: Colors.blue,
+                  size: logoSize * 0.6,
+                ),
+              );
+            },
+          ),
+
+          SizedBox(width: spacingBetween),
+
+          // Texte
+          Expanded(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  project['name']!,
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: titleFontSize,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+                Text(
+                  project['type']!,
+                  style: TextStyle(
+                    color: Colors.grey,
+                    fontSize: titleFontSize * 0.8,
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Contenu descriptif
+  Widget _buildDescriptiveContent(double screenWidth,
+      {required bool isMobileView}) {
+    double titleFontSize = screenWidth < 600 ? 18 :
+    screenWidth < 900 ? 20 : 23;
+    double bodyFontSize = screenWidth < 600 ? 16 : 19;
+
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        // Titre de section
+        Text(
+          "Une communauté, pas seulement une clientèle",
+          style: GoogleFonts.aboreto(
+            color: Colors.blue,
+            fontSize: titleFontSize,
+            fontWeight: FontWeight.bold,
+            height: 1.3,
+          ),
+        ),
+
+        SizedBox(height: 15),
+
+        // Premier paragraphe
+        Text.rich(
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: bodyFontSize,
+            height: 1.4,
+          ),
+          TextSpan(
+            children: [
+              TextSpan(
+                text: "• Rahma Group ne veut pas seulement avoir des clients. Nous voulons bâtir une ",
+              ),
+              TextSpan(
+                text: "communauté vivante, solidaire et participative, ",
+                style: TextStyle(
+                  color: Colors.pink[700],
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              TextSpan(
+                text: "où chaque personne qui rejoint notre univers devient aussi actrice du changement",
+              ),
+            ],
+          ),
+        ),
+
+        SizedBox(height: 15),
+
+        // Deuxième paragraphe
+        Text.rich(
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: bodyFontSize,
+            height: 1.4,
+          ),
+          TextSpan(
+            children: [
+              TextSpan(
+                text: "• Notre vision ne se limite pas à la recherche de profit. Elle repose sur une ambition plus large : ",
+              ),
+              TextSpan(
+                text: "mettre l'entreprise au service du bien commun, ",
+                style: TextStyle(
+                  color: Colors.pink[700],
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
+              TextSpan(
+                text: "en apportant des solutions concrètes à des besoins essentiels",
+              ),
+            ],
+          ),
+        ),
+
+        SizedBox(height: 30),
+
+        // Tags des besoins essentiels
+        _buildNeedsTags(screenWidth, isMobileView),
+      ],
+    );
+  }
+
+  // Tags des besoins essentiels
+  Widget _buildNeedsTags(double screenWidth, bool isMobileView) {
+    List<String> needs = [
+      "Se nourrir",
+      "Se soigner",
+      "S'éduquer",
+      "Travailler",
+      "Vivre dignement"
+    ];
+
+    if (isMobileView || screenWidth < 900) {
+      // Version mobile : tags sur plusieurs lignes
+      return Wrap(
+        spacing: 8,
+        runSpacing: 8,
+        children: needs.map((need) => _buildNeedTag(need, screenWidth))
+            .toList(),
+      );
+    } else {
+      // Version desktop : tags en ligne
+      return Row(
+        children: needs
+            .map((need) =>
+            Padding(
+              padding: EdgeInsets.only(right: 10),
+              child: _buildNeedTag(need, screenWidth),
+            ))
+            .toList(),
+      );
+    }
+  }
+
+  // Tag individuel
+  Widget _buildNeedTag(String text, double screenWidth) {
+    double fontSize = screenWidth < 600 ? 12 : 14;
+    double padding = screenWidth < 600 ? 8 : 10;
+
+    return Container(
+      padding: EdgeInsets.symmetric(
+        horizontal: padding,
+        vertical: padding * 0.6,
+      ),
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(39, 39, 48, 1),
+        borderRadius: BorderRadius.circular(7),
+        border: Border.all(width: 0.5, color: Colors.blueGrey),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.black.withOpacity(0.1),
+            blurRadius: 2,
+            offset: Offset(0, 1),
+          ),
+        ],
+      ),
+      child: Text(
+        text,
+        style: TextStyle(
+          color: Colors.grey,
+          fontSize: fontSize,
+          fontWeight: FontWeight.w400,
         ),
       ),
     );
   }
+
+  ///**********Ce que nous savons faire
+  ///
+  Widget _buildServiceCard(
+      String title,
+      String subtitle,
+      String description,
+      bool isMobile,
+      bool isTablet
+      ) {
+    return Container(
+      padding: EdgeInsets.all(isMobile ? 12 : isTablet ? 16 : 20),
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(39, 39, 48, 1),
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(width: .5, color: Colors.blueGrey),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            title,
+            style: TextStyle(
+              fontSize: isMobile ? 16 : 19,
+              color: Colors.blue,
+              fontWeight: FontWeight.w600,
+            ),
+          ),
+
+          if (subtitle.isNotEmpty) ...[
+            SizedBox(height: 8),
+            Text(
+              subtitle,
+              style: TextStyle(
+                fontSize: isMobile ? 14 : isTablet ? 16 : 19,
+                color: Colors.white,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ],
+
+          SizedBox(height: 8),
+
+          Flexible(
+            child: Text(
+              description,
+              style: TextStyle(
+                color: Colors.grey,
+                fontSize: isMobile ? 12 : 13,
+                height: 1.4,
+              ),
+              overflow: TextOverflow.fade,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
 
   Widget _buildTopBar(double width) {
     return Container(
@@ -2712,7 +2120,7 @@ class _HomeState extends State<Home> {
             ),
           ),
           Image.asset("assets/logo/logo.png", height: 40),
-          NavBar(),
+          //NavBar(),
           DropdownButton<String>(
             value: dropdownValue,
             icon: const Icon(Icons.arrow_downward),
@@ -2781,7 +2189,7 @@ class _HomeState extends State<Home> {
   Widget _buildIntroText() {
     return Row(
       children: [
-        Text('<span>', style: TextStyle(color: Colors.red[800], fontSize: 17)),
+        Text('<span>', style: TextStyle(color: Colors.pink[700], fontSize: 13)),
         DefaultTextStyle(
           style: TextStyle(fontSize: 17.0),
           child: AnimatedTextKit(
@@ -2789,7 +2197,7 @@ class _HomeState extends State<Home> {
             animatedTexts: [
               TypewriterAnimatedText(
                 'Salut ! Nous sommes Rahma Group ',
-                textStyle: TextStyle(color: Colors.white),
+                textStyle: TextStyle(color: Colors.white, fontSize: 13),
                 cursor: '',
                 speed: Duration(milliseconds: 200),
               ),
@@ -2800,9 +2208,10 @@ class _HomeState extends State<Home> {
           opacity: _showCursor ? 1.0 : 0.0,
           duration: Duration(milliseconds: 200),
           child: Text("|",
-              style: TextStyle(color: Colors.yellow[800], fontSize: 17)),
+              style: TextStyle(color: Colors.yellow[800], fontSize: 13)),
         ),
-        Text(' <span>', style: TextStyle(color: Colors.red[800], fontSize: 17)),
+        Text(' <span>',
+            style: TextStyle(color: Colors.pink[700], fontSize: 13)),
       ],
     );
   }
@@ -2822,19 +2231,19 @@ class _HomeState extends State<Home> {
           TextSpan(
               text: "♦ ",
               style: TextStyle(
-                  color: Colors.green[800],
+                  color: Colors.blue[800],
                   fontSize: fontSizeForm,
                   fontWeight: FontWeight.bold)),
           TextSpan(
               text: "au \nservice",
               style: TextStyle(
-                  color: Colors.green[800],
+                  color: Colors.blue[800],
                   fontSize: fontSize,
                   fontWeight: FontWeight.bold)),
           TextSpan(
               text: " ♦",
               style: TextStyle(
-                  color: Colors.green[800],
+                  color: Colors.blue[800],
                   fontSize: fontSizeForm,
                   fontWeight: FontWeight.bold)),
           TextSpan(
@@ -2861,17 +2270,511 @@ class _HomeState extends State<Home> {
     );
   }
 
+  ///***************Cooperation
+  ///
+  // Layout pour mobile (disposition verticale)
+  Widget _buildMobileLayoutCooperation(List<Map<String, String>> companies,
+      List<Map<String, dynamic>> contacts, BuildContext context) {
+    return Column(
+      children: [
+        // Section principale avec entreprises
+        _buildCooperationSection(companies, contacts, true, context),
+        SizedBox(height: 20),
+        // Section valeurs
+        _buildValuesSection(true, context),
+      ],
+    );
+  }
+
+// Layout pour desktop/tablette (disposition horizontale)
+  Widget _buildDesktopLayoutCooperation(List<Map<String, String>> companies,
+      List<Map<String, dynamic>> contacts, BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          flex: 3,
+          child: _buildCooperationSection(companies, contacts, false, context),
+        ),
+        SizedBox(width: 20),
+        Expanded(
+          flex: 2,
+          child: _buildValuesSection(false, context),
+        ),
+      ],
+    );
+  }
+
+// Section coopération avec les entreprises
+  Widget _buildCooperationSection(List<Map<String, String>> companies,
+      List<Map<String, dynamic>> contacts, bool isMobile, BuildContext context) {
+    final screenWidth = MediaQuery.of(context).size.width;
+
+    return Stack(
+      children: [
+        AnimatedGradientBorder(
+          borderSize: 1,
+          glowSize: 1,
+          animationTime: 17,
+          gradientColors: [
+            Colors.transparent,
+            Colors.transparent,
+            Colors.transparent,
+            Colors.blue
+          ],
+          animationProgress: null,
+          borderRadius: BorderRadius.circular(20),
+          child: Container(
+            width: double.infinity,
+            padding: EdgeInsets.all(isMobile ? 12 : 16),
+            decoration: BoxDecoration(
+              color: Color.fromRGBO(39, 39, 48, 1),
+              borderRadius: BorderRadius.circular(20),
+              border: Border.all(width: .5, color: Colors.blueGrey),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                // Titre
+                Text(
+                  "• Coopération",
+                  style: TextStyle(
+                    fontSize: isMobile ? 16 : 19,
+                    color: Colors.blue,
+                  ),
+                ),
+                // Texte principal
+                Text.rich(
+                  style: TextStyle(
+                    fontSize: isMobile ? 24 : (screenWidth < 1200 ? 28 : 37),
+                    fontWeight: FontWeight.w500,
+                    color: Colors.white,
+                  ),
+                  TextSpan(
+                    children: [
+                      TextSpan(text: "Plus de 10"),
+                      TextSpan(
+                        text: " entreprises\n",
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                      TextSpan(text: "nous font"),
+                      TextSpan(
+                        text: " confiance_",
+                        style: TextStyle(color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(height: 20),
+                // Container avec logos des entreprises
+                _buildCompaniesContainer(companies, isMobile),
+                SizedBox(height: 20),
+                // Section contact
+                //_buildContactSection(contacts, isMobile),
+                SizedBox(height: 27),
+              ],
+            ),
+          ),
+        ),
+        // Widget OrbitRadar positionné
+        if (!isMobile)
+          Positioned(
+            bottom: 60,
+            right: 60,
+            child: OrbitRadar(),
+          ),
+      ],
+    );
+  }
+
+// Container avec les logos des entreprises
+  Widget _buildCompaniesContainer(List<Map<String, String>> companies, bool isMobile) {
+    // Diviser les entreprises en groupes pour l'affichage
+    final firstRow = companies.take(5).toList();
+    final secondRow = companies.skip(5).toList();
+
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(isMobile ? 12 : 16),
+      margin: EdgeInsets.symmetric(horizontal: isMobile ? 8 : 25),
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(39, 39, 48, 1),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(width: .5, color: Colors.blueGrey),
+      ),
+      child: Column(
+        children: [
+          _buildCompanyRow(firstRow, isMobile),
+          if (secondRow.isNotEmpty) ...[
+            SizedBox(height: isMobile ? 20 : 30),
+            _buildCompanyRow(secondRow, isMobile),
+          ],
+        ],
+      ),
+    );
+  }
+
+// Ligne d'entreprises
+  Widget _buildCompanyRow(List<Map<String, String>> companies, bool isMobile) {
+    return SingleChildScrollView(
+      scrollDirection: Axis.horizontal,
+      child: Row(
+        children: companies.map((company) =>
+            Padding(
+              padding: EdgeInsets.only(right: isMobile ? 12 : 20),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Image.asset(
+                    company['logo']!,
+                    width: isMobile ? 25 : 30,
+                    height: isMobile ? 25 : 30,
+                    errorBuilder: (context, error, stackTrace) =>
+                        Icon(Icons.business, size: isMobile ? 25 : 30, color: Colors.grey),
+                  ),
+                  SizedBox(width: 8),
+                  Text(
+                    company['name']!,
+                    style: TextStyle(
+                      fontSize: isMobile ? 12 : 15,
+                      color: Colors.blueGrey,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+        ).toList(),
+      ),
+    );
+  }
+/*
+// Section contact avec avatar et informations
+  Widget _buildContactSection(List<Map<String, dynamic>> contacts, bool isMobile) {
+    return isMobile
+        ? _buildMobileContactSection(contacts)
+        : _buildDesktopContactSection(contacts);
+  }
+
+// Contact section pour mobile (disposition verticale)
+  Widget _buildMobileContactSection(List<Map<String, dynamic>> contacts) {
+    return Column(
+      children: [
+        // Avatar
+        Container(
+          width: 80,
+          height: 80,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(100),
+            border: Border.all(color: Colors.blueGrey, width: .5),
+            color: Colors.transparent,
+          ),
+          child: Container(
+            margin: EdgeInsets.all(10),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(100),
+              border: Border.all(color: Colors.blueGrey, width: .5),
+            ),
+            child: Container(
+              margin: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                border: Border.all(color: Colors.blueGrey, width: .5),
+                color: Colors.pink[700],
+              ),
+            ),
+          ),
+        ),
+        SizedBox(height: 16),
+        // Informations de contact
+        ...contacts.map((contact) => _buildContactItem(contact, true)),
+      ],
+    );
+  }
+
+// Contact section pour desktop (disposition horizontale)
+  Widget _buildDesktopContactSection(List<Map<String, dynamic>> contacts) {
+    return Row(
+      children: [
+        // Avatar
+        Center(
+          child: Container(
+            width: 100,
+            height: 100,
+            margin: EdgeInsets.only(left: 25),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(100),
+              border: Border.all(color: Colors.blueGrey, width: .5),
+              color: Colors.transparent,
+            ),
+            child: Container(
+              width: 75,
+              height: 75,
+              margin: EdgeInsets.all(15),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(100),
+                border: Border.all(color: Colors.blueGrey, width: .5),
+              ),
+              child: Container(
+                width: 75,
+                height: 75,
+                margin: EdgeInsets.all(15),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(100),
+                  border: Border.all(color: Colors.blueGrey, width: .5),
+                  color: Colors.pink[700],
+                ),
+              ),
+            ),
+          ),
+        ),
+        // Informations de contact
+        Expanded(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: contacts.map((contact) => _buildContactItem(contact, false)).toList(),
+          ),
+        ),
+      ],
+    );
+  }
+
+// Item de contact individuel
+  Widget _buildContactItem(Map<String, dynamic> contact, bool isMobile) {
+    return TextButton(
+      onPressed: contact['onPressed'],
+      child: Row(
+        mainAxisSize: isMobile ? MainAxisSize.min : MainAxisSize.max,
+        children: [
+          Icon(
+            contact['icon'],
+            color: Colors.white,
+            size: isMobile ? 20 : 23,
+          ),
+          SizedBox(width: 11),
+          Text(
+            contact['label'],
+            style: TextStyle(
+              fontSize: isMobile ? 14 : 17,
+              color: Colors.grey,
+            ),
+          ),
+          SizedBox(width: 11),
+          Flexible(
+            child: Text(
+              contact['value'],
+              style: TextStyle(
+                fontSize: isMobile ? 14 : 17,
+                color: Colors.pink[700],
+              ),
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+*/
+// Section des valeurs (assumant que 'entries' est défini ailleurs)
+  Widget _buildValuesSection(bool isMobile, BuildContext context) {
+    // Cette variable doit être définie dans votre contexte
+    // final List<Map<String, String>> entries = [...];
+
+    return Container(
+      width: double.infinity,
+      padding: EdgeInsets.all(isMobile ? 12 : 16),
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(39, 39, 48, 1),
+        borderRadius: BorderRadius.circular(20),
+        border: Border.all(width: .5, color: Colors.blueGrey),
+      ),
+      child: Stack(
+        children: [
+          // Ligne verticale
+          Positioned.fill(
+            left: 20,
+            top: 50,
+            bottom: 50,
+            child: Align(
+              alignment: Alignment.centerLeft,
+              child: Container(
+                width: 2,
+                color: Colors.grey.shade800,
+              ),
+            ),
+          ),
+          // Contenu principal
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  CircleAvatar(
+                    radius: 4,
+                    backgroundColor: Colors.blue,
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: Text(
+                      "Nos Valeurs – Ce qui guide Rahma Group",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: isMobile ? 14 : 16,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 26),
+              ...entries.map((entry) => _buildValueEntry(entry, isMobile)),
+            ],
+          ),
+          // Overlay gradient en bas
+          Positioned(
+            bottom: 0,
+            left: 0,
+            right: 0,
+            child: IgnorePointer(
+              child: Container(
+                height: 40,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      Colors.transparent,
+                      Color(0xFF272730),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+// Widget pour une entrée de valeur (à utiliser avec vos données 'entries')
+  Widget _buildValueEntry(Map<String, String> entry, bool isMobile) {
+    return Padding(
+      padding: EdgeInsets.only(left: 24, bottom: 27),
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            flex: 2,
+            child: Text(
+              entry["title"]!,
+              style: TextStyle(
+                color: Colors.grey.shade400,
+                fontSize: isMobile ? 14 : 16,
+              ),
+            ),
+          ),
+          SizedBox(width: 15),
+          Expanded(
+            flex: 3,
+            child: Text(
+              entry["content"]!,
+              textAlign: TextAlign.justify,
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: isMobile ? 13 : 14,
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  ///*******************--responsive experience
+
+// Layout pour mobile (vertical, 2x2 grid)
+  Widget _buildMobileLayout(List<Map<String, dynamic>> stats, double iconSize,
+      double numberFontSize, double textFontSize, double itemPadding) {
+    return Column(
+      children: [
+        Row(
+          children: [
+            Expanded(child: _buildStatItem(stats[0], iconSize, numberFontSize, textFontSize, itemPadding)),
+            SizedBox(width: 8),
+            Expanded(child: _buildStatItem(stats[1], iconSize, numberFontSize, textFontSize, itemPadding)),
+          ],
+        ),
+        SizedBox(height: 16),
+        Row(
+          children: [
+            Expanded(child: _buildStatItem(stats[2], iconSize, numberFontSize, textFontSize, itemPadding)),
+            SizedBox(width: 8),
+            Expanded(child: _buildStatItem(stats[3], iconSize, numberFontSize, textFontSize, itemPadding)),
+          ],
+        ),
+      ],
+    );
+  }
+
+// Layout pour tablette et desktop (horizontal)
+  Widget _buildDesktopLayout(List<Map<String, dynamic>> stats, double iconSize,
+      double numberFontSize, double textFontSize, double itemPadding) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      children: stats.map((stat) =>
+          Expanded(child: _buildStatItem(stat, iconSize, numberFontSize, textFontSize, itemPadding))
+      ).toList(),
+    );
+  }
+
+// Widget pour chaque élément statistique
+  Widget _buildStatItem(Map<String, dynamic> stat, double iconSize,
+      double numberFontSize, double textFontSize, double itemPadding) {
+    return Padding(
+      padding: EdgeInsets.all(itemPadding),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Icon(
+            stat['icon'],
+            size: iconSize,
+            color: Colors.blue,
+          ),
+          SizedBox(height: 8),
+          FittedBox(
+            child: Text(
+              stat['number'],
+              style: TextStyle(
+                fontSize: numberFontSize,
+                color: Colors.white,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          SizedBox(height: 4),
+          Text(
+            stat['text'],
+            style: TextStyle(
+              fontSize: textFontSize,
+              color: Colors.white,
+            ),
+            textAlign: TextAlign.center,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+          ),
+        ],
+      ),
+    );
+  }
+
+  ///---------------------**responsive
+
   Widget _buildDescription() {
     return Text.rich(
       TextSpan(
         children: [
           TextSpan(text: '<p>', style: TextStyle(color: Colors.pink[700])),
-          TextSpan(
-              text:
-                  "Rahma Group est une entreprise à "),
-          TextSpan(
-              text: 'mission,',
-              style: TextStyle(color: Colors.pink[700])),
+          TextSpan(text: "Rahma Group est une entreprise à "),
+          TextSpan(text: 'mission,', style: TextStyle(color: Colors.pink[700])),
           TextSpan(
               text:
                   "... fondée sur la volonté profonde de contribuer à la construction d'une société plus juste, plus autonome et plus durable"),
@@ -2906,7 +2809,7 @@ class _HomeState extends State<Home> {
                     ),
                     borderRadius: BorderRadius.circular(12),
                   ),
-                  child: Image.network(
+                  child: Image.asset(
                     repeatedLogos[index],
                     width: 40,
                     height: 40,
@@ -2932,7 +2835,7 @@ class _HomeState extends State<Home> {
   }
 }
 
-class Skills extends StatefulWidget {
+/*class Skills extends StatefulWidget {
   const Skills({
     super.key,
     required this.width,
@@ -2945,7 +2848,6 @@ class Skills extends StatefulWidget {
 }
 
 class _SkillsState extends State<Skills> {
-
   bool showCursor = true;
   final ScrollController scrollController = ScrollController();
   late Timer time;
@@ -2953,11 +2855,11 @@ class _SkillsState extends State<Skills> {
   List<String> get repeatedLogo => [...logo, ...logo, ...logo];
 
   final List<String> logo = [
-    'https://zelio-developer.botble.com/storage/code/skills/1.png',
-    'https://zelio-developer.botble.com/storage/code/skills/2.png',
-    'https://zelio-developer.botble.com/storage/code/skills/3.png',
-    'https://zelio-developer.botble.com/storage/code/skills/4.png',
-    'https://zelio-developer.botble.com/storage/code/skills/5.png',
+    'assets/skills/1.png',
+    'assets/skills/2.png',
+    'assets/skills/3.png',
+    'assets/skills/4.png',
+    'assets/skills/5.png',
   ];
 
   void startAutoScroll() {
@@ -3010,7 +2912,7 @@ class _SkillsState extends State<Skills> {
               ),
               borderRadius: BorderRadius.circular(12),
             ),
-            child: Image.network(
+            child: Image.asset(
               repeatedLogo[index],
               width: 60,
               height: 60,
@@ -3023,7 +2925,6 @@ class _SkillsState extends State<Skills> {
   }
 }
 
-
 class SkillsSection extends StatelessWidget {
   final List<String> logos = [
     'https://zelio-developer.botble.com/storage/code/skills/1.png',
@@ -3034,16 +2935,28 @@ class SkillsSection extends StatelessWidget {
   ];
 
   final List<String> logoNames = [
-    'Next.js', 'Firebase', 'MongoDB', 'Node.js', 'Tailwind CSS'
+    'Next.js',
+    'Firebase',
+    'MongoDB',
+    'Node.js',
+    'Tailwind CSS'
   ];
 
   final List<Map<String, String>> skills = [
-    {"category": "Front-End", "skills": "HTML, CSS, JavaScript, React, Angular"},
+    {
+      "category": "Front-End",
+      "skills": "HTML, CSS, JavaScript, React, Angular"
+    },
     {"category": "Back-End", "skills": "Node.js, Express, Python, Django"},
     {"category": "Databases", "skills": "MySQL, PostgreSQL, MongoDB"},
     {"category": "Tools & Platforms", "skills": "Git, Docker, AWS, Heroku"},
-    {"category": "Others", "skills": "RESTful APIs, GraphQL, Agile Methodologies"},
+    {
+      "category": "Others",
+      "skills": "RESTful APIs, GraphQL, Agile Methodologies"
+    },
   ];
+
+  SkillsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -3134,10 +3047,12 @@ class _SkillsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: skills.map((skill) => _SkillItem(
-        category: skill['category']!,
-        skills: skill['skills']!,
-      )).toList(),
+      children: skills
+          .map((skill) => _SkillItem(
+                category: skill['category']!,
+                skills: skill['skills']!,
+              ))
+          .toList(),
     );
   }
 }
@@ -3155,10 +3070,18 @@ class _SkillItem extends StatelessWidget {
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text('$category:', style: TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
+          Text('$category:',
+              style:
+                  TextStyle(fontWeight: FontWeight.bold, color: Colors.white)),
           SizedBox(width: 8),
           Expanded(
             child: Text(
               skills,
               style: TextStyle(color: Colors.grey),
-            ))]));}}
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}*/

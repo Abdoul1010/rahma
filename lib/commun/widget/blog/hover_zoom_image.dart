@@ -29,11 +29,15 @@ class _HoverZoomImageWithButtonState extends State<HoverZoomImageWithButton> {
             scale: _hovering ? 1.05 : 1.0,
             duration: const Duration(milliseconds: 300),
             curve: Curves.easeInOut,
-            child: ClipRRect(
-              borderRadius: BorderRadius.circular(12),
-              child: Image.network(
-                widget.imageUrl,
-                fit: BoxFit.cover,
+            child: Container(
+              height: 300,
+              width: double.maxFinite,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(12),
+                child: Image.asset(
+                  widget.imageUrl,
+                  fit: BoxFit.cover,
+                ),
               ),
             ),
           ),
