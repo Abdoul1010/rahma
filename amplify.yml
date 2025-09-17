@@ -1,0 +1,18 @@
+version: 1
+applications:
+  - frontend:
+      phases:
+        preBuild:
+          commands:
+            - flutter --version
+            - flutter pub get
+        build:
+          commands:
+            - flutter build web --release
+      artifacts:
+        baseDirectory: build/web
+        files:
+          - '**/*'
+      cache:
+        paths:
+          - ~/.pub-cache/**/*
