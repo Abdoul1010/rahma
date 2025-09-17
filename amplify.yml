@@ -4,9 +4,8 @@ applications:
       phases:
         preBuild:
           commands:
-            # Installation de Flutter
-            - wget -O flutter.tar.xz https://storage.googleapis.com/flutter_infra_release/releases/stable/linux/flutter_linux_3.24.3-stable.tar.xz
-            - tar xf flutter.tar.xz
+            # Installation de Flutter via git clone (plus compatible)
+            - git clone https://github.com/flutter/flutter.git -b stable --depth 1
             - export PATH="$PATH:`pwd`/flutter/bin"
             - flutter --version
             - flutter config --enable-web
@@ -14,7 +13,7 @@ applications:
         build:
           commands:
             - export PATH="$PATH:`pwd`/flutter/bin"
-            - flutter build web --release
+            - flutter build web --release --web-renderer html
       artifacts:
         baseDirectory: build/web
         files:
